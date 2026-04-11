@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0b0f19">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Vitalidade 40+ | IA Personal Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { dark: '#0b0f19', surface: '#1e293b', primary: '#3b82f6' } } }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0f19;
+            color: #e2e8f0;
+            margin: 0;
+            padding-bottom: 80px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .nav-item.active {
+            color: #3b82f6;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            transition: transform 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 50;
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            width: 100%;
+            max-height: 90vh;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            animation: slideUp 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .chat-user {
+            background: #3b82f6;
+            color: white;
+            border-radius: 16px 16px 4px 16px;
+            margin-left: auto;
+        }
+
+        .chat-ai {
+            background: #334155;
+            color: #e2e8f0;
+            border-radius: 16px 16px 16px 4px;
+            margin-right: auto;
+        }
+
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 12px;
+        }
+
+        .typing span {
+            width: 6px;
+            height: 6px;
+            background: #64748b;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-6px);
+            }
+        }
+
+        input,
+        select {
+            background: #334155;
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth-screen" class="fixed inset-0 bg-[#0b0f19] flex items-center justify-center p-6 z-50">
+        <div class="w-full max-w-xs space-y-4 text-center">
+            <div
+                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mx-auto flex items-center justify-center shadow-xl mb-2">
+                <span class="text-3xl text-white font-bold">V</span></div>
+            <h1 class="text-2xl font-bold">Vitalidade 40+</h1>
+            <p class="text-slate-400 text-sm mb-6">IA Personal Trainer baseada em ciência</p>
+            <input type="email" id="auth-email" placeholder="Seu e-mail">
+            <input type="password" id="auth-password" placeholder="Senha (mín. 6 caracteres)">
+            <button onclick="handleAuth('login')"
+                class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold active:scale-95 transition">Entrar</button>
+            <button onclick="handleAuth('signup')"
+                class="w-full bg-slate-800 text-slate-300 py-3 rounded-xl font-semibold active:scale-95 transition">Criar
+                Conta</button>
+            <p id="auth-error" class="text-red-400 text-xs hidden"></p>
+        </div>
+    </div>
+
+    <header id="app-header"
+        class="sticky top-0 z-40 bg-[#0b0f19]/95 backdrop-blur border-b border-slate-800 px-4 py-3 flex justify-between items-center hidden">
+        <div class="flex items-center gap-2">
+            <div
+                class="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <span class="text-white font-bold">V</span></div>
+            <div>
+                <h1 class="font-bold text-sm">Vitalidade 40+</h1>
+                <p class="text-[10px] text-slate-500">IA Personal Trainer</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-1 bg-green-500/20 px-2 py-1 rounded-full">
+            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div><span
+                class="text-xs text-green-400 font-medium">IA Ativa</span>
+        </div>
+    </header>
+
+    <main id="app-main" class="px-4 py-4 hidden">
+        <div id="page-home" class="page active">
+            <div id="welcome-section"></div>
+        </div>
+        <div id="page-ia" class="page flex flex-col" style="height: calc(100vh - 140px);">
+            <div id="chat-messages" class="flex-1 overflow-y-auto space-y-3 pb-4"></div>
+            <div class="sticky bottom-0 bg-[#0b0f19] pt-2">
+                <div class="flex gap-2 mb-2 overflow-x-auto pb-2">
+                    <button onclick="prompt('Gerar treino de hoje')"
+                        class="whitespace-nowrap bg-slate-800 text-xs px-3 py-1.5 rounded-full border border-slate-700">💪
+                        Gerar Treino</button>
+                    <button onclick="prompt('Minha evolução')"
+                        class="whitespace-nowrap bg-slate-800 text-xs px-3 py-1.5 rounded-full border border-slate-700">📊
+                        Evolução</button>
+                    <button onclick="prompt('Explicar BFR')"
+                        class="whitespace-nowrap bg-slate-800 text-xs px-3 py-1.5 rounded-full border border-slate-700">🩸
+                        BFR</button>
+                </div>
+                <div class="flex gap-2"><input type="text" id="chat-input" placeholder="Pergunte à IA..."
+                        onkeypress="if(event.key==='Enter')send()"><button onclick="send()"
+                        class="bg-blue-600 px-4 rounded-xl flex items-center justify-center"><svg
+                            class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg></button></div>
+            </div>
+        </div>
+        <div id="page-perfil" class="page">
+            <div id="profile-content"></div>
+        </div>
+        <div id="page-historico" class="page">
+            <h2 class="text-xl font-bold mb-4">Histórico de Treinos</h2>
+            <div id="history-list" class="space-y-3"></div>
+        </div>
+    </main>
+
+    <nav id="app-nav"
+        class="fixed bottom-0 left-0 right-0 bg-[#0b0f19] border-t border-slate-800 flex justify-around py-3 z-40 hidden">
+        <button class="nav-item active flex flex-col items-center gap-1 text-slate-400" onclick="go('home', this)"><span
+                class="text-xl">🏠</span><span class="text-[10px] font-medium">Início</span></button>
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400" onclick="go('ia', this)"><span
+                class="text-xl">🤖</span><span class="text-[10px] font-medium">IA Coach</span></button>
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400" onclick="go('historico', this)"><span
+                class="text-xl">📋</span><span class="text-[10px] font-medium">Histórico</span></button>
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400" onclick="go('perfil', this)"><span
+                class="text-xl">👤</span><span class="text-[10px] font-medium">Perfil</span></button>
+    </nav>
+
+    <div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-lg font-bold"></h3><button onclick="closeModal()"
+                    class="text-slate-400 text-2xl">&times;</button>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // ================= CONFIGURAÇÃO =================
+        // ⚠️ SUBSTITUA PELAS SUAS CREDENCIAIS DO PASSO 2
+        const SUPABASE_URL = 'https://mdhizwhomaovsxwxfnwf.supabase.co';
+        const SUPABASE_KEY = 'Ssb_publishable_dUhtXtTQ2r2XbpJfFucT4A_ejgfjBtN';
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let user = null, profile = {}, workouts = [];
+        const KB = {
+            phases: {
+                adaptacao: { name: 'Adaptação', w: 2, int: '50-60%', sets: '2-3', reps: '12-15', rest: 60 },
+                hipertrofia: { name: 'Hipertrofia', w: 4, int: '70-80%', sets: '3-4', reps: '8-12', rest: 90 },
+                forca: { name: 'Força', w: 3, int: '85-90%', sets: '4-5', reps: '4-6', rest: 120 },
+                deload: { name: 'Deload', w: 1, int: '40-50%', sets: '2', reps: '10-12', rest: 60 }
+            },
+            exercises: {
+                peito: [{ n: 'Supino Reto Halteres', s: 4, r: '8-10', t: 90, c: ['Escápulas retraídas', 'Cotovelos a 45°', 'Excêntrica 3s'] }, { n: 'Supino Inclinado', s: 3, r: '10-12', t: 90, c: ['Foco peitoral superior', 'Amplitude controlada'] }, { n: 'Crucifixo Máquina', s: 3, r: '12-15', t: 60, c: ['Aperte no centro', 'Sem travar cotovelos'] }],
+                costas: [{ n: 'Remada Curvada', s: 4, r: '8-10', t: 90, c: ['Tronco a 45°', 'Puxe ao umbigo', 'Costas retas'] }, { n: 'Puxada Frontal', s: 3, r: '10-12', t: 90, c: ['Pegada larga', 'Puxe o peito'] }, { n: 'Face Pull', s: 3, r: '15-20', t: 60, c: ['Rotação externa', 'Foco posterior'] }],
+                pernas: [{ n: 'Agachamento Goblet', s: 4, r: '10-12', t: 120, c: ['Halter ao peito', 'Joelhos alinhados'] }, { n: 'Leg Press', s: 4, r: '10-12', t: 90, c: ['Não trave joelhos', 'Amplitude'] }, { n: 'Mesa Flexora', s: 3, r: '12-15', t: 60, c: ['Quadril fixo', 'Descida lenta'] }, { n: 'Stiff', s: 3, r: '10-12', t: 90, c: ['Coluna neutra', 'Quadril para trás'] }, { n: 'Panturrilha', s: 4, r: '15-20', t: 45, c: ['Amplitude total', 'Pausa no topo'] }],
+                ombros: [{ n: 'Desenvolvimento Halteres', s: 4, r: '8-10', t: 90, c: ['Core ativado', 'Não arquear costas'] }, { n: 'Elevação Lateral', s: 3, r: '12-15', t: 60, c: ['Até linha ombro', 'Sem impulso'] }],
+                bracos: [{ n: 'Rosca Direta', s: 3, r: '10-12', t: 60, c: ['Cotovelos fixos', 'Sem balanço'] }, { n: 'Tríceps Pulley', s: 3, r: '12-15', t: 60, c: ['Cotovelos colados', 'Contração total'] }],
+                core: [{ n: 'Prancha', s: 3, r: '30-60s', t: 45, c: ['Corpo reto', 'Respiração constante'] }]
+            }
+        };
+
+        async function handleAuth(type) {
+            const e = document.getElementById('auth-email').value, p = document.getElementById('auth-password').value;
+            const err = document.getElementById('auth-error');
+            if (!e || !p) { err.textContent = 'Preencha todos os campos'; err.classList.remove('hidden'); return; }
+            try {
+                const res = type === 'signup' ? await sb.auth.signUp({ email: e, password: p }) : await sb.auth.signInWithPassword({ email: e, password: p });
+                if (res.error) throw res.error;
+                if (type === 'signup' && res.data.user) await sb.from('profiles').upsert({ id: res.data.user.id, name: e.split('@')[0], created_at: new Date().toISOString() });
+            } catch (ex) { err.textContent = ex.message; err.classList.remove('hidden'); }
+        }
+        sb.auth.onAuthStateChange((e, s) => { if (e === 'SIGNED_IN') { user = s.user; init(); } else if (e === 'SIGNED_OUT') location.reload(); });
+        sb.auth.getSession().then(({{ session }}) => { if (session) { user = session.user; init(); } });
+
+        async function init() {
+            document.getElementById('auth-screen').classList.add('hidden');
+            document.getElementById('app-header').classList.remove('hidden');
+            document.getElementById('app-main').classList.remove('hidden');
+            document.getElementById('app-nav').classList.remove('hidden');
+            await loadData(); renderHome();
+            setTimeout(() => { addChat('ai', !profile.name ? 'Olá! Preencha seu Perfil para eu gerar treinos 100% personalizados.' : `Olá ${profile.name.split(' ')[0]}! IA pronta. Peça seu treino ou tire dúvidas.`); }, 500);
+        }
+
+        async function loadData() {
+            const { data: p } = await sb.from('profiles').select('*').eq('id', user.id).single(); if (p) profile = p;
+            const { data: w } = await sb.from('workout_history').select('*').eq('user_id', user.id).order('created_at', { ascending: false }); if (w) workouts = w;
+        }
+        async function saveProfile(d) { const { error: err } = await sb.from('profiles').upsert({ id: user.id, ...d, updated_at: new Date().toISOString() }); if (!err) { profile = { ...profile, ...d }; if (!profile.plan_start) sb.from('profiles').update({ plan_start: new Date().toISOString() }).eq('id', user.id); } return !err; }
+        async function saveWorkout(w) { const { data, error: err } = await sb.from('workout_history').insert({ user_id: user.id, workout_data: w, created_at: new Date().toISOString() }).select().single(); if (data) workouts.unshift(data); return data; }
+        async function complete(id) { await sb.from('workout_history').update({ completed: true, completed_at: new Date().toISOString() }).eq('id', id); const w = workouts.find(x => x.id === id); if (w) { w.completed = true; w.completed_at = new Date().toISOString(); } }
+
+        class AI {
+            week() { if (!profile.plan_start) return 1; return Math.floor((Date.now() - new Date(profile.plan_start)) / (7 * 24 * 60 * 60 * 1000)) + 1; }
+            phase(w) { const c = ((w - 1) % 10); return c < 2 ? 'adaptacao' : c < 6 ? 'hipertrofia' : c < 9 ? 'forca' : 'deload'; }
+            split(d, l) { const m = { iniciante: { 1: 'Full Body', 3: 'Full Body', 5: 'Full Body' }, intermediario: { 1: 'Upper', 2: 'Lower', 4: 'Upper', 5: 'Lower' }, avancado: { 1: 'Push', 2: 'Pull', 3: 'Legs', 4: 'Push', 5: 'Pull' } }; return m[l]?.[d] || 'Descanso Ativo'; }
+            map(s) { if (s.includes('Push') || s === 'Upper' || s === 'Full Body') return ['peito', 'ombros', 'bracos']; if (s.includes('Pull') || s === 'Upper') return ['costas', 'bracos']; if (s.includes('Legs') || s === 'Lower' || s === 'Full Body') return ['pernas', 'core']; return ['peito', 'costas', 'pernas']; }
+            gen() {
+                if (!profile.name) return { error: 'Complete o perfil primeiro.' };
+                const d = new Date().getDay(), w = this.week(), ph = this.phase(w), p = KB.phases[ph], sp = this.split(d, profile.level);
+                const groups = this.map(sp), ex = [];
+                groups.forEach(g => {
+                    const pool = KB.exercises[g]; if (!pool) return;
+                    const n = profile.level === 'iniciante' ? (g === 'pernas' ? 3 : 2) : (g === 'pernas' ? 4 : 3);
+                    pool.sort(() => 0.5 - Math.random()).slice(0, n).forEach(e => {
+                        ex.push({ ...e, sets: this.sets(e, p), reps: p.reps, rest: this.rest(e, p), bfr: Math.random() > 0.5 && (profile.hasInjury || ph.name.includes('Adaptação')) });
+                    });
+                });
+                const dur = Math.round(ex.reduce((s, e) => s + (e.sets * e.rest) + e.sets * 120, 0) / 60);
+                return { id: crypto.randomUUID(), date: new Date().toISOString(), name: `${sp} - ${p.name}`, phase: ph, split: sp, exercises: ex, duration: dur, notes: this.notes(ph) };
+            }
+            sets(e, p) { let b = parseInt(p.sets.split('-')[0]); if (profile.level === 'iniciante') b = Math.max(b - 1, 2); return b; }
+            rest(e, p) { return Math.min(e.rest, p.rest); }
+            notes(ph) {
+                const n = [];
+                if (ph.name.includes('Adaptação')) n.push('📌 Foque na técnica. Respeite a fase excêntrica de 3s.');
+                if (ph.name.includes('Força')) n.push('🔥 Descanse 2-3min entre séries. Cargas altas exigem recuperação.');
+                if (profile.hasInjury) n.push('⚠️ Lesão detectada: use BFR e cargas leves para manter estímulo.');
+                if (profile.objective === 'perda_gordura') n.push('🔥 Pós-treino: 20min HIIT em bicicleta (reduz 40% estresse nos joelhos vs corrida).');
+                n.push(`💡 48-72h de descanso entre grupos é obrigatório (${profile.age} anos).`);
+                return n;
+            }
+            chat(m) {
+                const t = m.toLowerCase();
+                if (t.includes('gerar') || t.includes('treino')) return { text: 'Treino de hoje:', w: this.gen() };
+                if (t.includes('evolu')) return { text: `📊 **Total:** ${workouts.length} | **Concluídos:** ${workouts.filter(x => x.completed).length} | **Semana:** ${this.week()}/10 | **Fase:** ${KB.phases[this.phase(this.week())].name}\n\n${this.week() < 2 ? '✅ Fase inicial. Foque na forma.' : '👍 Continue consistente. Adesão é o motor dos resultados.'}` };
+                if (t.includes('bfr')) return { text: '🩸 **Restrição de Fluxo (BFR)**\n\nTécnica ideal para >40 anos: cargas 20-40% 1RM, protocolo 30-15-15-15 reps, descanso 30-60s. Gera hipóxia local e pico de GH sem estresse articular. Indicado para lesões ou fases de deload.' };
+                if (t.includes('cuidado') || t.includes('app') || t.includes('exame')) return { text: '⚠️ **APP Obrigatória (SBMEE/ACSM)**\n1️⃣ Ergometria (Teste de esforço)\n2️⃣ Testosterona Total/Livre (DAEM)\n3️⃣ PSA (Próstata)\n4️⃣ Perfil Lipídico + Glicemia\n5️⃣ TGO/TGP + Creatinina\n\nNão pule etapas. Saúde > Carga.' };
+                if (t.includes('sono') || t.includes('vitalidade')) return { text: '🌙 **Sono & Vitalidade**\nApós 40, o GH é liberado no sono profundo. Depleção de glicogênio via treino + HIIT sincroniza o ciclo circadiano. Meta: 7-9h. Quarto escuro, sem telas 1h antes. A vitalidade subjetiva é seu biomarcador mais forte.' };
+                return { text: `Entendi. Posso ajudar com:\n💪 "Gerar treino"\n📊 "Minha evolução"\n🩸 "Explicar BFR"\n🥗 "Alimentação (Proteína)"\n🏥 "Check-ups APP"\n\nO que deseja?` };
+            }
+        }
+        const ai = new AI();
+
+        function go(page, btn) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById(`page-${page}`).classList.add('active'); document.querySelectorAll('.nav-item').forEach(b => { b.classList.remove('active'); b.classList.add('text-slate-400') }); btn.classList.add('active'); btn.classList.remove('text-slate-400'); if (page === 'home') renderHome(); if (page === 'perfil') renderProfile(); if (page === 'historico') renderHistory(); }
+        function renderHome() { const el = document.getElementById('welcome-section'), w = ai.week(), ph = ai.phase(w), p = KB.phases[ph], done = workouts.filter(x => x.completed).length; if (!profile.name) { el.innerHTML = `<div class="bg-gradient-to-r from-blue-900 to-slate-800 rounded-2xl p-5 mb-6 border border-blue-800/50"><h2 class="text-xl font-bold mb-2">Bem-vindo!</h2><p class="text-sm text-slate-300 mb-4">Configure seu perfil para treinos baseados em ciência.</p><button onclick="document.querySelectorAll('.nav-item')[3].click()" class="w-full bg-blue-600 py-2.5 rounded-xl font-semibold">Configurar Perfil →</button></div>`; return; } el.innerHTML = `<div class="bg-gradient-to-r from-blue-900 to-slate-800 rounded-2xl p-5 mb-6 border border-blue-800/50"><div class="flex justify-between mb-3"><div><h2 class="text-xl font-bold mb-1">Olá, ${profile.name.split(' ')[0]}!</h2><p class="text-sm text-slate-300">${profile.age} anos • ${profile.level}</p></div><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-xl">⚡</div></div><div class="flex gap-2 mb-3"><span class="tag bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full text-xs">Semana ${w}/10</span><span class="tag bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full text-xs">${p.name}</span></div><p class="text-sm text-slate-300 mb-3">Fase atual: ${p.int} • Descanso 48-72h entre grupos</p><button onclick="go('ia',document.querySelectorAll('.nav-item')[1]);prompt('Gerar treino')" class="w-full bg-blue-600 py-2.5 rounded-xl font-semibold">Ver Treino de Hoje →</button></div><div class="grid grid-cols-3 gap-3 mb-6"><div class="bg-surface p-3 rounded-xl text-center"><div class="text-blue-400 font-bold text-lg">${done}</div><div class="text-[10px] text-slate-400">Concluídos</div></div><div class="bg-surface p-3 rounded-xl text-center"><div class="text-green-400 font-bold text-lg">${workouts.length}</div><div class="text-[10px] text-slate-400">Total</div></div><div class="bg-surface p-3 rounded-xl text-center"><div class="text-yellow-400 font-bold text-lg">S${w}</div><div class="text-[10px] text-slate-400">Semana</div></div></div><div class="space-y-3"><div class="card p-4" onclick="go('ia',document.querySelectorAll('.nav-item')[1])"><div class="flex gap-3 items-center"><span class="text-2xl">🤖</span><div><h4 class="font-bold text-sm">Fale com a IA</h4><p class="text-xs text-slate-400">Dúvidas, ajustes e ciência</p></div></div></div><div class="card p-4" onclick="modal('📅 Periodização 10 Semanas', ` < div class='space-y-3' > ${ Object.entries(KB.phases).map(([k, v]) => `<div class='bg-slate-800 p-3 rounded'><div class='flex justify-between'><span class='font-bold'>${v.name}</span><span class='text-xs text-slate-400'>${v.w} sem</span></div><div class='text-xs text-slate-500 mt-1'>${v.int} • ${v.reps} reps • ${v.sets} séries</div></div>`).join('') }</div > `)"><div class="flex gap-3 items-center"><span class="text-2xl">📊</span><div><h4 class="font-bold text-sm">Ver Plano Completo</h4><p class="text-xs text-slate-400">Fases e volumes</p></div></div></div></div>`; }
+        function renderProfile() { const p = profile; document.getElementById('profile-content').innerHTML = `<h2 class="text-xl font-bold mb-4">Meu Perfil</h2><form onsubmit="save(event)" class="space-y-4"><input type="text" id="pn" value="${p.name || ''}" placeholder="Nome" required><div class="grid grid-cols-2 gap-3"><input type="number" id="pa" value="${p.age || ''}" placeholder="Idade" required><input type="number" id="pw" value="${p.weight || ''}" placeholder="Peso (kg)"></div><select id="pl"><option value="iniciante" ${p.level === 'iniciante' ? 'selected' : ''}>Iniciante</option><option value="intermediario" ${p.level === 'intermediario' ? 'selected' : ''}>Intermediário</option><option value="avancado" ${p.level === 'avancado' ? 'selected' : ''}>Avançado</option></select><select id="po"><option value="hipertrofia" ${p.objective === 'hipertrofia' ? 'selected' : ''}>Hipertrofia</option><option value="perda_gordura" ${p.objective === 'perda_gordura' ? 'selected' : ''}>Perda Gordura</option></select><select id="pi"><option value="false" ${!p.hasInjury ? 'selected' : ''}>Sem lesão</option><option value="true" ${p.hasInjury ? 'selected' : ''}>Possuo lesão/limitação</option></select><button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold">Salvar</button></form>`; }
+        async function save(e) { e.preventDefault(); const ok = await saveProfile({ name: pn.value, age: +pa.value, weight: +pw.value, level: pl.value, objective: po.value, hasInjury: pi.value === 'true' }); alert(ok ? '✅ Salvo' : '❌ Erro'); renderHome(); }
+        function renderHistory() { document.getElementById('history-list').innerHTML = workouts.length === 0 ? '<p class="text-center text-slate-500 py-8">Nenhum treino.</p>' : workouts.map(w => `<div class="card p-4" onclick="detail('${w.id}')"><div class="flex justify-between mb-1"><span class="font-bold text-sm">${w.workout_data.name || 'Treino'}</span><span class="text-xs text-slate-500">${new Date(w.created_at).toLocaleDateString('pt-BR')}</span></div><div class="flex gap-2 flex-wrap"><span class="tag bg-slate-700 text-xs">${w.workout_data.exercises?.length || 0} ex</span>${w.completed ? '<span class="tag bg-green-600 text-xs">✅</span>' : '<span class="tag bg-yellow-600 text-xs">⏳</span>'}</div></div>`).join(''); }
+        function detail(id) { const w = workouts.find(x => x.id === id), d = w.workout_data; modal('Detalhes do Treino', `<div class="space-y-3">${d.exercises.map(e => `<div class="bg-slate-800 p-3 rounded"><div class="flex justify-between"><span class="font-bold">${e.n}</span><span class="text-blue-400 text-sm">${e.sets}×${e.reps}</span></div><div class="flex gap-2 mt-1 flex-wrap"><span class="text-[10px] bg-slate-700 px-1.5 py-0.5 rounded">↻ ${e.t}s</span>${e.bfr ? '<span class="text-[10px] bg-purple-600 px-1.5 py-0.5 rounded">BFR</span>' : ''}</div><div class="text-xs text-slate-400 mt-2">${e.c.map(c => '• ' + c).join('<br>')}</div></div>`).join('')}${d.notes.map(n => `<p class="text-xs text-yellow-400 bg-yellow-500/10 p-2 rounded mt-2">${n}</p>`).join('')}${!w.completed ? `<button onclick="confirm('${id}')" class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold mt-4">✅ Confirmar Realização</button>` : ''}</div>`); }
+        async function confirm(id) { await complete(id); closeModal(); renderHistory(); }
+
+        function addChat(type, html) { const c = document.getElementById('chat-messages'), d = document.createElement('div'); d.className = `chat-msg chat-${type}`; d.innerHTML = html; c.appendChild(d); c.scrollTop = c.scrollHeight; }
+        function showType() { const c = document.getElementById('chat-messages'), d = document.createElement('div'); d.id = 'typing'; d.className = 'chat-msg chat-ai'; d.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>'; c.appendChild(d); c.scrollTop = c.scrollHeight; }
+        function hideType() { const d = document.getElementById('typing'); if (d) d.remove(); }
+        function prompt(t) { document.getElementById('chat-input').value = t; send(); }
+        function send() { const i = document.getElementById('chat-input'), m = i.value.trim(); if (!m) return; i.value = ''; addChat('user', m); showType(); setTimeout(() => { hideType(); const r = ai.chat(m); if (r.w) { addChat('ai', r.text); renderChatW(r.w); } else addChat('ai', r.text); }, 800); }
+        function renderChatW(w) { const c = document.getElementById('chat-messages'), d = document.createElement('div'); d.className = 'chat-msg chat-ai'; d.innerHTML = `<div class="bg-slate-800/50 rounded p-3 -mx-3 -mb-3 mt-2 space-y-2">${w.exercises.map(e => `<div class="bg-slate-700/50 rounded p-2"><div class="flex justify-between"><span class="font-medium text-sm">${e.n}</span><span class="text-blue-400 text-xs">${e.sets}×${e.reps}</span></div><div class="flex gap-2 mt-1"><span class="text-[10px] bg-slate-600 px-1.5 py-0.5 rounded">↻ ${e.t}s</span></div></div>`).join('')}${w.notes.map(n => `<p class="text-xs text-yellow-400 mt-1">${n}</p>`).join('')}</div><button onclick="confirmChat('${w.id}')" class="w-full mt-3 bg-green-600 text-white py-2 rounded-lg text-sm font-semibold">✅ Registrar</button>`; c.appendChild(d); c.scrollTop = c.scrollHeight; }
+        async function confirmChat(id) { const saved = await saveWorkout(ai.gen()); if (saved) addChat('ai', '🎉 **Treino registrado!** Mantenha a hidratação e a proteína em 1.6-2g/kg.'); }
+        function modal(t, h) { document.getElementById('modal-title').textContent = t; document.getElementById('modal-body').innerHTML = h; document.getElementById('modal').classList.add('open'); }
+        function closeModal() { document.getElementById('modal').classList.remove('open'); }
+    </script>
+</body>
+
+</html>

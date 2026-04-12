@@ -778,20 +778,7 @@
 
             const daysHtml = prog.days.map(day => {
                 const isToday = day.day === todayName || day.day.startsWith(todayName.slice(0,3));
-                const exHtml = day.exercises.map((e, idx) => `
-                    <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/40 mb-2">
-                        <div class="flex justify-between items-start">
-                            <div class="flex-1 pr-2">
-                                <span class="font-bold text-white text-[13px]">${idx+1}. ${e.n}</span>
-                                ${e.bfr ? '<span class="ml-2 text-[10px] text-red-400 font-bold bg-red-900/30 px-1.5 py-0.5 rounded">BFR</span>' : ''}
-                            </div>
-                            <div class="text-right flex-shrink-0">
-                                <span class="text-primary font-black text-sm">${e.sets}×${e.reps}</span>
-                                <span class="text-slate-500 text-[10px] block">${e.t}s rest</span>
-                            </div>
-                        </div>
-                        ${e.c && e.c.length ? `<p class="text-[11px] text-slate-400 mt-1.5 leading-snug">${e.c.join(' · ')}</p>` : ''}
-                    </div>`).join('');
+                const exHtml = day.exercises.map((e, idx) => buildExerciseCard(e, idx)).join('');
 
                 return `
                     <div class="glass-panel rounded-2xl overflow-hidden mb-4 ${isToday ? 'border border-emerald-500/30' : 'border border-white/5'}">
@@ -950,22 +937,63 @@
         }
         function hideTyping() { const d = document.getElementById('typing'); if (d) d.remove(); }
 
+        // ── Shared exercise card builder ──────────────────────────────
+        function buildExerciseCard(e, idx) {
+            const cid = 'ex-' + Math.random().toString(36).slice(2, 8);
+            const descHtml = (e.desc || []).map((s, i) =>
+                `<div class="flex gap-2 mb-1.5"><span class="text-primary font-black text-[11px] flex-shrink-0 w-4">${i+1}.</span><span class="text-slate-300 text-[12px] leading-snug">${s}</span></div>`
+            ).join('');
+            const mistakesHtml = (e.mistakes || []).map(m =>
+                `<div class="flex gap-2 mb-1"><span class="text-red-400 flex-shrink-0 text-[11px]">✗</span><span class="text-slate-400 text-[11px] leading-snug">${m}</span></div>`
+            ).join('');
+            const hasDetails = descHtml || mistakesHtml || e.video_url;
+            return `
+                <div class="bg-slate-800/60 rounded-xl border border-slate-700/40 mb-2 overflow-hidden">
+                    <div class="p-3">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1 pr-2">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="font-bold text-white text-[13px]">${idx+1}. ${e.n}</span>
+                                    ${e.bfr ? '<span class="text-[10px] text-red-400 font-bold bg-red-900/30 px-1.5 py-0.5 rounded">BFR</span>' : ''}
+                                </div>
+                                ${e.muscles ? `<p class="text-[10px] text-primary/70 mt-0.5 leading-snug">${e.muscles}</p>` : ''}
+                            </div>
+                            <div class="text-right flex-shrink-0 ml-2">
+                                <span class="text-primary font-black text-sm">${e.sets}×${e.reps}</span>
+                                <span class="text-slate-500 text-[10px] block">${e.t}s rest</span>
+                            </div>
+                        </div>
+                        ${e.c && e.c.length ? `<div class="flex flex-wrap gap-1 mt-2">${e.c.map(c => `<span class="text-[10px] text-slate-400 bg-slate-700/50 px-2 py-0.5 rounded-full">${c}</span>`).join('')}</div>` : ''}
+                        ${hasDetails ? `<button onclick="toggleEx('${cid}')" id="${cid}-btn" class="mt-2 text-[11px] text-primary/80 font-bold flex items-center gap-1 hover:text-primary transition-colors">▼ Ver execução</button>` : ''}
+                    </div>
+                    ${hasDetails ? `<div id="${cid}" class="hidden border-t border-slate-700/40 p-3 bg-slate-900/60">
+                        ${descHtml ? `<p class="text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wide">Como executar</p>${descHtml}` : ''}
+                        ${mistakesHtml ? `<p class="text-[10px] text-red-500/70 font-bold uppercase mb-2 mt-3 tracking-wide">Erros comuns</p>${mistakesHtml}` : ''}
+                        ${e.video_url ? `<a href="${e.video_url}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-red-600/20 border border-red-500/30 text-red-400 text-xs font-bold px-3 py-2.5 rounded-xl w-full mt-3 hover:bg-red-600/30 transition-colors">▶ Ver no YouTube</a>` : ''}
+                    </div>` : ''}
+                </div>`;
+        }
+
+        function toggleEx(cid) {
+            const el = document.getElementById(cid);
+            const btn = document.getElementById(cid + '-btn');
+            if (!el) return;
+            const hidden = el.classList.toggle('hidden');
+            if (btn) btn.textContent = hidden ? '▼ Ver execução' : '▲ Fechar';
+        }
+        // ─────────────────────────────────────────────────────────────
+
         function renderWorkoutInChat(w) {
             w.id = w.id || crypto.randomUUID();
             const c = document.getElementById('chat-messages');
             const d = document.createElement('div'); d.className = 'chat-msg chat-ai p-0 overflow-hidden w-full max-w-[100%]';
-
-            let exHtml = w.exercises.map((e, idx) => `
-                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/50 mb-2">
-                    <div class="flex justify-between items-start">
-                        <div class="max-w-[75%]"><span class="font-bold text-[13px] text-white">${idx + 1}. ${e.n}</span></div>
-                        <div class="text-right"><span class="text-primary font-black text-base">${e.sets}</span><span class="text-blue-400 text-[10px] block">${e.reps} r</span></div>
-                    </div>
-                </div>`).join('');
-
+            const exHtml = (w.exercises || []).map((e, i) => buildExerciseCard(e, i)).join('');
             d.innerHTML = `
-                <div class="bg-slate-900 p-4 border-b border-primary/20"><h4 class="font-black text-white text-[15px]">${w.name}</h4></div>
-                <div class="p-3 space-y-3 bg-[#0f172a]">${exHtml}</div>
+                <div class="bg-slate-900 p-4 border-b border-primary/20">
+                    <h4 class="font-black text-white text-[15px]">${w.name}</h4>
+                    <span class="text-xs text-slate-400">${(w.exercises||[]).length} exercícios</span>
+                </div>
+                <div class="p-3 bg-[#0f172a]">${exHtml}</div>
                 <button onclick="saveAndConfirmChat(this, '${encodeURIComponent(JSON.stringify(w))}')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white p-4 font-black uppercase text-xs">
                     ✅ Registrar este Protocolo
                 </button>`;
@@ -1019,14 +1047,14 @@
         function showWorkoutDetail(id) {
             const w = workouts.find(x => x.id === id);
             const d = w.workout_data;
+            const exHtml = (d.exercises || []).map((e, i) => buildExerciseCard(e, i)).join('');
             const content = `
-                <div class="space-y-4 pb-4">
-                    ${d.exercises.map(e => `
-                        <div class="glass-panel p-4 rounded-xl border border-slate-700/50">
-                            <div class="flex justify-between items-start mb-2"><span class="font-bold text-white text-base leading-tight w-3/4">${e.n}</span><span class="text-primary font-black text-sm bg-primary/10 px-2 py-1 rounded-lg">${e.sets}×${e.reps}</span></div>
-                            <div class="text-xs text-slate-300 font-medium bg-slate-900/60 p-2 rounded-lg mb-3">${e.c ? e.c.join('<br>') : ''}</div>
-                        </div>`).join('')}
-                    ${!w.completed ? `<button onclick="confirmWorkoutCompletion('${id}')" class="w-full bg-emerald-600 text-white hover:bg-emerald-500 py-4 mt-6 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(5,150,105,0.4)]">✅ Marcar Concluído</button>` : `<div class="bg-emerald-900/30 text-emerald-400 font-bold p-4 text-center rounded-xl border border-emerald-500/20 uppercase tracking-widest mt-6">✓ Sessão Batida</div>`}
+                <div class="pb-4">
+                    <p class="text-xs text-slate-500 mb-3">${(d.exercises||[]).length} exercícios${d.duration ? ' · ' + d.duration + 'min' : ''}</p>
+                    ${exHtml}
+                    ${!w.completed
+                        ? `<button onclick="confirmWorkoutCompletion('${id}')" class="w-full bg-emerald-600 text-white hover:bg-emerald-500 py-4 mt-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(5,150,105,0.4)]">✅ Marcar Concluído</button>`
+                        : `<div class="bg-emerald-900/30 text-emerald-400 font-bold p-4 text-center rounded-xl border border-emerald-500/20 uppercase tracking-widest mt-4">✓ Sessão Batida</div>`}
                 </div>`;
             openModal(d.name || 'Treino Detalhado', content);
         }

@@ -320,6 +320,11 @@
             <div id="profile-content"></div>
         </div>
 
+        <!-- PROGRAMA -->
+        <div id="page-programa" class="page pb-6">
+            <div id="programa-content"></div>
+        </div>
+
         <!-- HISTÓRICO -->
         <div id="page-historico" class="page">
             <div class="flex justify-between items-end mb-6">
@@ -336,7 +341,7 @@
     <!-- Navigation -->
     <nav id="app-nav"
         class="fixed bottom-0 left-0 right-0 glass-panel border-t border-white/5 flex justify-around pt-3 pb-6 z-40 hidden">
-        <button class="nav-item active flex flex-col items-center gap-1 text-slate-400 w-16"
+        <button class="nav-item active flex flex-col items-center gap-1 text-slate-400 w-14"
             onclick="showPage('home', this)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -344,13 +349,21 @@
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Início</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-16" onclick="showPage('ia', this)">
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('ia', this)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">IA Coach</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-16"
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
+            onclick="showPage('programa', this)">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span class="text-[10px] font-bold tracking-wide">Programa</span>
+        </button>
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
             onclick="showPage('historico', this)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -358,7 +371,7 @@
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Evolução</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-16"
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
             onclick="showPage('perfil', this)">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -407,6 +420,8 @@
         let user = null;
         let profile = {};
         let workouts = [];
+        let activeProgram = null;
+        let recentCheckins = [];
 
         // Checkup Visual se as chaves existem
         const warningsBox = document.getElementById('setup-warnings');
@@ -484,6 +499,16 @@
 
                 const { data: w } = await sb.from('workout_history').select('*').eq('user_id', user.id).order('created_at', { ascending: false });
                 if (w) workouts = w || [];
+
+                const { data: prog } = await sb.from('programs')
+                    .select('*').eq('user_id', user.id).eq('active', true)
+                    .order('created_at', { ascending: false }).limit(1).maybeSingle();
+                activeProgram = prog || null;
+
+                const { data: ci } = await sb.from('checkins')
+                    .select('*').eq('user_id', user.id)
+                    .order('created_at', { ascending: false }).limit(20);
+                recentCheckins = ci || [];
             } catch (e) {
                 console.error("Falha ao puxar os dados do usuário:", e);
             }
@@ -505,49 +530,125 @@
             if (pageId === 'home') renderHome();
             if (pageId === 'perfil') renderProfile();
             if (pageId === 'historico') renderHistory();
+            if (pageId === 'programa') renderProgram();
         }
 
         function renderHome() {
             const el = document.getElementById('welcome-section');
             const doneTotal = workouts.filter(x => x.completed).length;
             const nm = profile.name ? profile.name.split(' ')[0] : 'Atleta';
+            const dayNames = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+            const todayName = dayNames[new Date().getDay()];
+            let todayDay = null;
+            if (activeProgram && activeProgram.program_data && activeProgram.program_data.days) {
+                todayDay = activeProgram.program_data.days.find(d => d.day === todayName || d.day.startsWith(todayName.slice(0,3)));
+            }
+
+            const programSection = activeProgram ? `
+                <div class="glass-panel rounded-3xl p-5 mb-4 border border-primary/20 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+                    <div class="flex justify-between items-start mb-3 relative z-10">
+                        <div>
+                            <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Programa Ativo</span>
+                            <h3 class="font-black text-white text-base mt-0.5">${activeProgram.program_data.name}</h3>
+                        </div>
+                        <button onclick="showPage('programa', null)" class="text-xs text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-xl font-bold hover:bg-primary/20 transition-colors">Ver tudo</button>
+                    </div>
+                    ${todayDay ? `
+                    <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-3 mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-emerald-400 text-xs font-bold uppercase">Hoje — ` + todayName + `</span>
+                            <span class="text-emerald-300 text-[11px]">${todayDay.exercises.length} exercícios</span>
+                        </div>
+                        <p class="text-white font-bold text-sm">${todayDay.focus}</p>
+                    </div>
+                    <button onclick="startDayWorkout('${encodeURIComponent(JSON.stringify(todayDay))}')" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 py-3.5 rounded-2xl font-bold flex justify-center items-center gap-2 text-sm uppercase tracking-wider">
+                        ▶ Treinar Agora
+                    </button>` : `
+                    <div class="bg-slate-800/50 rounded-2xl p-3 text-center">
+                        <p class="text-slate-400 text-sm">Descanso ativo hoje.</p>
+                    </div>`}
+                </div>` : `
+                <div class="glass-panel rounded-3xl p-6 mb-4 border border-accent/20 relative overflow-hidden mt-2">
+                    <div class="text-center">
+                        <div class="text-5xl mb-3">🏋️</div>
+                        <h3 class="font-black text-white text-lg mb-1">Sem programa ativo</h3>
+                        <p class="text-slate-400 text-sm mb-4">Solicite ao coach IA seu programa de 5 dias.</p>
+                        <button onclick="promptProgram()" class="w-full bg-gradient-to-r from-primary to-accent py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">
+                            ✨ Gerar Meu Programa
+                        </button>
+                    </div>
+                </div>`;
+
+            const checkinsSummary = recentCheckins.length >= 5 ? `
+                <div class="glass-panel rounded-2xl p-4 mb-4 border border-amber-500/20 bg-amber-500/5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-amber-400 text-xs font-bold uppercase tracking-wide">${recentCheckins.length} check-ins registrados</p>
+                            <p class="text-slate-300 text-sm mt-0.5">Peça uma análise ao seu coach.</p>
+                        </div>
+                        <button onclick="promptAnalysis()" class="bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs px-3 py-2 rounded-xl font-bold whitespace-nowrap">Analisar</button>
+                    </div>
+                </div>` : '';
 
             el.innerHTML = `
-                <div class="glass-panel rounded-3xl p-6 mb-6 border border-emerald-500/20 relative overflow-hidden mt-2">
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
-                    <div class="flex justify-between items-start mb-4 relative z-10">
-                        <div>
-                            <h2 class="text-2xl font-black mb-1">Olá, ${nm}</h2>
-                            <p class="text-sm text-slate-300 font-medium">${profile.age || '?'} anos • Foco: ${profile.objective === 'perda_gordura' ? 'Metabólico/HIIT' : 'Hipertrofia'}</p>
-                        </div>
-                        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl font-black border border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.2)]">⚡</div>
+                <div class="flex justify-between items-start mb-5 mt-2">
+                    <div>
+                        <h2 class="text-2xl font-black mb-0.5">Olá, ${nm}</h2>
+                        <p class="text-sm text-slate-400">${profile.age || '?'} anos • ${profile.objective === 'perda_gordura' ? 'Metabólico/HIIT' : 'Hipertrofia'}</p>
                     </div>
-                    
-                    <div class="bg-slate-900/50 p-4 rounded-2xl border border-white/5 mb-5 space-y-2">
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-slate-400">Sistema Concorrente</span>
-                            <span class="text-white font-bold tag bg-primary/20 text-primary px-2 py-0.5 rounded text-xs">Ativo</span>
-                        </div>
-                        <p class="text-[11px] text-slate-400 leading-tight">Protocolo integrado combatendo DAEM e Sarcopenia com base na clínica ACSM.</p>
-                    </div>
-
-                    <button onclick="document.querySelectorAll('.nav-item')[1].click()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 py-4 rounded-2xl font-bold flex justify-center items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all font-outfit uppercase tracking-wider text-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        Acessar Treino de Hoje
-                    </button>
+                    <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl border border-emerald-500/40">⚡</div>
                 </div>
-
-                <div class="grid grid-cols-2 gap-4 mb-6">
+                ${programSection}
+                ${checkinsSummary}
+                <div class="grid grid-cols-2 gap-3 mb-4">
                     <div class="glass-panel p-4 rounded-2xl">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary border border-primary/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                            <div class="w-9 h-9 bg-primary/20 rounded-xl flex items-center justify-center text-primary border border-primary/20 flex-shrink-0">✓</div>
                             <div>
                                 <div class="text-xl font-bold text-white leading-none">${doneTotal}</div>
-                                <div class="text-[10px] text-slate-400 uppercase font-bold mt-1">Concluídos</div>
+                                <div class="text-[10px] text-slate-400 uppercase font-bold mt-1">Treinos</div>
                             </div>
                         </div>
                     </div>
-                </div>`;
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 bg-accent/20 rounded-xl flex items-center justify-center text-accent border border-accent/20 flex-shrink-0">📊</div>
+                            <div>
+                                <div class="text-xl font-bold text-white leading-none">${recentCheckins.length}</div>
+                                <div class="text-[10px] text-slate-400 uppercase font-bold mt-1">Check-ins</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="document.querySelectorAll('.nav-item')[1].click()" class="w-full glass-panel border border-white/10 hover:border-primary/30 py-3.5 rounded-2xl font-bold flex justify-center items-center gap-2 transition-all text-sm text-slate-300 hover:text-primary mb-4">
+                    ⚡ Conversar com o Coach IA
+                </button>`;
+        }
+
+        function promptProgram() {
+            showPage('ia', document.querySelectorAll('.nav-item')[1]);
+            setTimeout(() => {
+                document.getElementById('chat-input').value = 'Gere meu programa semanal personalizado de 5 dias com base no meu perfil';
+                send();
+            }, 300);
+        }
+
+        function promptAnalysis() {
+            showPage('ia', document.querySelectorAll('.nav-item')[1]);
+            setTimeout(() => {
+                document.getElementById('chat-input').value = 'Analise meu progresso e os check-ins recentes. Preciso atualizar meu programa?';
+                send();
+            }, 300);
+        }
+
+        function startDayWorkout(dayStr) {
+            const day = JSON.parse(decodeURIComponent(dayStr));
+            showPage('ia', document.querySelectorAll('.nav-item')[1]);
+            setTimeout(() => {
+                document.getElementById('chat-input').value = 'Vou treinar ' + day.focus + ' agora. Confirme o treino e me dê dicas de execução.';
+                send();
+            }, 300);
         }
 
         function renderProfile() {
@@ -617,6 +718,78 @@
             renderHome();
         }
 
+        function renderProgram() {
+            const el = document.getElementById('programa-content');
+            if (!activeProgram || !activeProgram.program_data) {
+                el.innerHTML = `
+                    <div class="text-center py-16">
+                        <div class="text-6xl mb-4">📋</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Nenhum programa ativo</h3>
+                        <p class="text-slate-400 text-sm mb-6">Peça ao coach IA para gerar seu programa semanal.</p>
+                        <button onclick="promptProgram()" class="bg-gradient-to-r from-primary to-accent px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-wider">
+                            ✨ Gerar Meu Programa
+                        </button>
+                    </div>`;
+                return;
+            }
+            const prog = activeProgram.program_data;
+            const dayNames = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+            const todayName = dayNames[new Date().getDay()];
+
+            const daysHtml = prog.days.map(day => {
+                const isToday = day.day === todayName || day.day.startsWith(todayName.slice(0,3));
+                const exHtml = day.exercises.map((e, idx) => `
+                    <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700/40 mb-2">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1 pr-2">
+                                <span class="font-bold text-white text-[13px]">${idx+1}. ${e.n}</span>
+                                ${e.bfr ? '<span class="ml-2 text-[10px] text-red-400 font-bold bg-red-900/30 px-1.5 py-0.5 rounded">BFR</span>' : ''}
+                            </div>
+                            <div class="text-right flex-shrink-0">
+                                <span class="text-primary font-black text-sm">${e.sets}×${e.reps}</span>
+                                <span class="text-slate-500 text-[10px] block">${e.t}s rest</span>
+                            </div>
+                        </div>
+                        ${e.c && e.c.length ? `<p class="text-[11px] text-slate-400 mt-1.5 leading-snug">${e.c.join(' · ')}</p>` : ''}
+                    </div>`).join('');
+
+                return `
+                    <div class="glass-panel rounded-2xl overflow-hidden mb-4 ${isToday ? 'border border-emerald-500/30' : 'border border-white/5'}">
+                        <div class="p-4 ${isToday ? 'bg-emerald-500/10' : 'bg-slate-900/50'} flex justify-between items-center">
+                            <div>
+                                ${isToday ? '<span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wide block mb-0.5">Hoje</span>' : ''}
+                                <h4 class="font-black text-white">${day.day}</h4>
+                                <p class="text-sm ${isToday ? 'text-emerald-300' : 'text-slate-400'} font-medium">${day.focus}</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="showCheckinModal('${day.day} - ${day.focus}')" class="text-xs bg-accent/20 border border-accent/30 text-accent px-3 py-1.5 rounded-xl font-bold hover:bg-accent/30 transition-colors">Check-in</button>
+                            </div>
+                        </div>
+                        <div class="p-3">${exHtml}</div>
+                    </div>`;
+            }).join('');
+
+            const notesHtml = prog.notes && prog.notes.length ? `
+                <div class="glass-panel rounded-2xl p-4 mb-4 border border-white/5">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Notas do Coach</h4>
+                    ${prog.notes.map(n => `<p class="text-sm text-slate-300 mb-1">• ${n}</p>`).join('')}
+                </div>` : '';
+
+            el.innerHTML = `
+                <div class="flex justify-between items-center mb-5">
+                    <div>
+                        <h2 class="text-2xl font-black">${prog.name}</h2>
+                        <p class="text-sm text-slate-400">Programa de 5 dias</p>
+                    </div>
+                    <button onclick="promptAnalysis()" class="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-2 rounded-xl font-bold">Analisar Progresso</button>
+                </div>
+                ${daysHtml}
+                ${notesHtml}
+                <button onclick="promptProgram()" class="w-full glass-panel border border-white/10 hover:border-primary/30 py-3.5 rounded-2xl font-bold flex justify-center items-center gap-2 transition-all text-sm text-slate-400 mb-4">
+                    ♻️ Solicitar Novo Programa
+                </button>`;
+        }
+
         function renderHistory() {
             document.getElementById('history-total').textContent = workouts.length;
             document.getElementById('history-list').innerHTML = workouts.length === 0
@@ -652,29 +825,54 @@
             input.value = ''; addChatMsg('user', msg); showTyping();
 
             try {
-                const responseContent = await callGeminiAPI(msg, profile);
+                const responseContent = await callAI(msg);
 
-                setTimeout(() => {
+                setTimeout(async () => {
                     hideTyping();
                     if (responseContent.text) addChatMsg('ai', responseContent.text.replace(/\n/g, '<br>'));
-                    if (responseContent.isWorkout && responseContent.workout) renderWorkoutInChat(responseContent.workout);
+                    if (responseContent.isProgram && responseContent.program) {
+                        await saveProgramAndRender(responseContent.program, responseContent.programUpdate);
+                    } else if (responseContent.isWorkout && responseContent.workout) {
+                        renderWorkoutInChat(responseContent.workout);
+                    }
                 }, 800);
 
             } catch (err) {
                 hideTyping();
-                addChatMsg('ai', 'Falha na conexão de inteligência. A chave Google Gemini configurada é válida?');
+                addChatMsg('ai', 'Falha na conexão de inteligência. Verifique a chave GROQ no Vercel.');
                 console.error(err);
             }
         }
 
-        async function callGeminiAPI(promptText, userProfile) {
+        async function saveProgramAndRender(programData, isUpdate) {
+            try {
+                // Desativar programa anterior
+                if (activeProgram) {
+                    await sb.from('programs').update({ active: false }).eq('id', activeProgram.id);
+                }
+                // Salvar novo programa
+                const { data: saved } = await sb.from('programs').insert({
+                    user_id: user.id,
+                    program_data: programData,
+                    active: true
+                }).select().single();
+                activeProgram = saved;
+            } catch (e) {
+                console.error('Erro ao salvar programa:', e);
+            }
+            renderProgramInChat(programData, isUpdate);
+            renderHome();
+        }
+
+        async function callAI(promptText) {
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     prompt: promptText,
-                    userProfile: userProfile,
-                    history: []
+                    userProfile: profile,
+                    currentProgram: activeProgram ? activeProgram.program_data : null,
+                    recentCheckins: recentCheckins.slice(0, 10)
                 })
             });
             if (!response.ok) throw new Error(`Erro na API: ${response.status}`);
@@ -734,6 +932,39 @@
             c.appendChild(d); c.scrollTop = c.scrollHeight;
         }
 
+        function renderProgramInChat(prog, isUpdate) {
+            const c = document.getElementById('chat-messages');
+            const d = document.createElement('div');
+            d.className = 'chat-msg chat-ai p-0 overflow-hidden w-full max-w-[100%]';
+
+            const daysHtml = prog.days.map(day => `
+                <div class="border-b border-slate-700/50 last:border-0">
+                    <div class="flex items-center gap-3 p-3 bg-slate-800/60">
+                        <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                        <div>
+                            <span class="font-bold text-white text-[13px]">${day.day}</span>
+                            <span class="text-slate-400 text-[11px] ml-2">${day.focus}</span>
+                        </div>
+                        <span class="ml-auto text-[10px] text-slate-500 font-medium">${day.exercises.length} ex.</span>
+                    </div>
+                </div>`).join('');
+
+            d.innerHTML = `
+                <div class="bg-gradient-to-r from-slate-900 to-primary/10 p-4 border-b border-primary/30">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-primary text-xs font-bold uppercase tracking-widest">${isUpdate ? '♻️ Programa Atualizado' : '🗓️ Programa Semanal'}</span>
+                    </div>
+                    <h4 class="font-black text-white text-[15px]">${prog.name}</h4>
+                </div>
+                <div class="bg-[#0f172a]">${daysHtml}</div>
+                ${prog.notes && prog.notes.length ? `<div class="p-3 bg-slate-900/50 border-t border-slate-700/50">${prog.notes.map(n => `<p class="text-[11px] text-slate-400 mb-1">• ${n}</p>`).join('')}</div>` : ''}
+                <button onclick="showPage('programa', null)" class="w-full bg-primary hover:bg-blue-500 text-white p-4 font-black uppercase text-xs transition-colors">
+                    📋 Ver Programa Completo
+                </button>`;
+            c.appendChild(d);
+            c.scrollTop = c.scrollHeight;
+        }
+
         async function saveAndConfirmChat(btn, workoutStr) {
             const data = JSON.parse(decodeURIComponent(workoutStr));
             const newRecord = { id: crypto.randomUUID(), workout_data: data, completed: false, created_at: new Date().toISOString() };
@@ -764,6 +995,65 @@
             const w = workouts.find(x => x.id === id); w.completed = true;
             await sb.from('workout_history').update({ completed: true, completed_at: new Date().toISOString() }).eq('id', id);
             closeModal(); renderHistory(); renderHome();
+        }
+
+        function showCheckinModal(dayKey) {
+            const content = `
+                <div class="space-y-5 pb-2">
+                    <p class="text-sm text-slate-400 -mt-1">Registre como foi o treino de <strong class="text-white">${dayKey}</strong></p>
+
+                    <div>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block">Fadiga Percebida: <span id="fatigue-val" class="text-primary">5</span>/10</label>
+                        <input type="range" id="ci-fatigue" min="1" max="10" value="5" oninput="document.getElementById('fatigue-val').textContent=this.value"
+                            style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block">RPE — Esforço: <span id="rpe-val" class="text-accent">5</span>/10</label>
+                        <input type="range" id="ci-rpe" min="1" max="10" value="5" oninput="document.getElementById('rpe-val').textContent=this.value"
+                            style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block">Peso Atual (kg)</label>
+                        <input type="number" id="ci-weight" placeholder="Ex: 88.5" value="${profile.weight || ''}">
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block">Observações</label>
+                        <textarea id="ci-notes" placeholder="Como foi o treino? Alguma dor ou superação?" rows="3"
+                            style="background: rgba(30,41,59,0.6) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 14px !important; padding: 14px 18px !important; color: white !important; width: 100%; box-sizing: border-box; font-size: 15px !important; resize: none; outline: none; font-family: inherit;"></textarea>
+                    </div>
+
+                    <button onclick="saveCheckin('${dayKey.replace(/'/g, '')}')" class="w-full bg-gradient-to-r from-primary to-accent py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-lg mt-2">
+                        Salvar Check-in
+                    </button>
+                </div>`;
+            openModal('Check-in de Treino', content);
+        }
+
+        async function saveCheckin(dayKey) {
+            const fatigue = parseInt(document.getElementById('ci-fatigue').value);
+            const rpe = parseInt(document.getElementById('ci-rpe').value);
+            const weight = parseFloat(document.getElementById('ci-weight').value) || null;
+            const notes = document.getElementById('ci-notes').value.trim();
+
+            try {
+                const { error } = await sb.from('checkins').insert({
+                    user_id: user.id,
+                    program_id: activeProgram ? activeProgram.id : null,
+                    day_key: dayKey,
+                    fatigue, rpe, weight, notes
+                });
+                if (error) throw error;
+                recentCheckins.unshift({ day_key: dayKey, fatigue, rpe, weight, notes, created_at: new Date().toISOString() });
+                closeModal();
+                renderHome();
+                renderProgram();
+                setTimeout(() => addChatMsg('ai', 'Check-in registrado! Obrigado pelo feedback — usarei esses dados para ajustar seu programa conforme necessário. 💪'), 300);
+            } catch (e) {
+                alert('Erro ao salvar check-in: ' + e.message);
+            }
         }
 
         const modalEl = document.getElementById('modal');

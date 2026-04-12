@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS profiles (
   weight      NUMERIC,
   level       TEXT        CHECK (level IN ('iniciante', 'intermediario', 'avancado')),
   objective   TEXT        CHECK (objective IN ('hipertrofia', 'perda_gordura')),
-  "hasInjury" BOOLEAN     NOT NULL DEFAULT FALSE,
+  has_injury  BOOLEAN     NOT NULL DEFAULT FALSE,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

@@ -587,8 +587,8 @@
                     <div class="glass-panel p-4 rounded-2xl bg-red-900/10 border-red-500/20 mt-2">
                         <label class="text-xs text-red-400 font-bold uppercase mb-2 block">Cálculo de Risco Articular</label>
                         <select id="p_inj" class="border-red-500/30 text-red-100 bg-red-900/20">
-                            <option value="false" ${!p.hasInjury ? 'selected' : ''}>Articulações Saudáveis (Sem Restrição)</option>
-                            <option value="true" ${p.hasInjury ? 'selected' : ''}>⚠️ Possuo Desgaste Articular/Tendineo (Ativar BFR)</option>
+                            <option value="false" ${!p.has_injury ? 'selected' : ''}>Articulações Saudáveis (Sem Restrição)</option>
+                            <option value="true" ${p.has_injury ? 'selected' : ''}>⚠️ Possuo Desgaste Articular/Tendineo (Ativar BFR)</option>
                         </select>
                         <p class="text-[10px] text-slate-400 mt-2">Nota: Acionar esta flag recalibrará a IA para aplicar métodos de Restrição de Fluxo Sanguíneo (BFR).</p>
                     </div>
@@ -608,7 +608,7 @@
                 weight: Number(document.getElementById('p_weight').value),
                 level: document.getElementById('p_level').value,
                 objective: document.getElementById('p_obj').value,
-                hasInjury: document.getElementById('p_inj').value === 'true'
+                has_injury: document.getElementById('p_inj').value === 'true'
             };
             profile = { ...profile, ...data };
 
@@ -685,13 +685,13 @@
             const t = text.toLowerCase();
             if (t.includes('treino')) {
                 return {
-                    text: `Modo Guiado! Montei o protocolo base visando sobrecarga metabólica para Sarcopenia. ${p.hasInjury ? 'Com BFR devida a sua restrição.' : ''}`,
+                    text: `Modo Guiado! Montei o protocolo base visando sobrecarga metabólica para Sarcopenia. ${p.has_injury ? 'Com BFR devida a sua restrição.' : ''}`,
                     isWorkout: true,
                     workout: {
                         name: "Vitalidade Premium (Modo Guiado)",
                         exercises: [
                             { n: 'Supino Reto Convergente', sets: 4, reps: '8-10', t: 90, bfr: false, c: ['3 seg de Excêntrica'], video_url: 'https://vimeo.com/12345' },
-                            { n: 'Leg Press Isolado', sets: 4, reps: '12-15', t: 120, bfr: p.hasInjury, c: ['Evite trancos nas patelas'], video_url: 'https://vimeo.com/23456' },
+                            { n: 'Leg Press Isolado', sets: 4, reps: '12-15', t: 120, bfr: p.has_injury, c: ['Evite trancos nas patelas'], video_url: 'https://vimeo.com/23456' },
                         ]
                     }
                 };

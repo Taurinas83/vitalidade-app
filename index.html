@@ -6,7 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#09090b">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Vitalidade 40+">
     <title>Vitalidade 40+ | IA Personal Trainer Premium</title>
+    <script>
+        // Gera o ícone V40+ via canvas e aplica como favicon + apple-touch-icon
+        (function () {
+            try {
+                var c = document.createElement('canvas');
+                c.width = c.height = 512;
+                var x = c.getContext('2d');
+                // Gradiente diagonal azul → roxo
+                var g = x.createLinearGradient(0, 0, 512, 512);
+                g.addColorStop(0, '#0ea5e9');
+                g.addColorStop(1, '#8b5cf6');
+                x.fillStyle = g;
+                // Rounded rect (equivalente ao rounded-3xl)
+                var r = 112;
+                x.beginPath();
+                x.moveTo(r, 0); x.lineTo(512 - r, 0); x.arcTo(512, 0, 512, r, r);
+                x.lineTo(512, 512 - r); x.arcTo(512, 512, 512 - r, 512, r);
+                x.lineTo(r, 512); x.arcTo(0, 512, 0, 512 - r, r);
+                x.lineTo(0, r); x.arcTo(0, 0, r, 0, r);
+                x.closePath(); x.fill();
+                // Texto V40+
+                x.fillStyle = 'white';
+                x.font = '900 195px "Arial Black", Arial, sans-serif';
+                x.textAlign = 'center';
+                x.textBaseline = 'middle';
+                x.fillText('V40+', 256, 262);
+                var d = c.toDataURL('image/png');
+                // Favicon
+                var lf = document.createElement('link');
+                lf.rel = 'icon'; lf.type = 'image/png'; lf.href = d;
+                document.head.appendChild(lf);
+                // Apple Touch Icon (180×180 escalado automaticamente pelo iOS)
+                var la = document.createElement('link');
+                la.rel = 'apple-touch-icon'; la.sizes = '512x512'; la.href = d;
+                document.head.appendChild(la);
+            } catch (e) { }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"

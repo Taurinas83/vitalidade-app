@@ -59,4 +59,16 @@
 ---
 
 ## 📁 Estrutura do Projeto
+vitalidade-app/ ├── index.html # Aplicação principal (SPA) ├── manifest.json # Configuração PWA ├── sw.js # Service Worker ├── vercel.json # Configuração Vercel ├── api/ │ └── chat.js # Serverless function (IA) └── README.md # Documentação
+
+
+---
+
+## 🔧 Instalação
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/Taurinas83/vitalidade-app.git
+cd vitalidade-app
+
 

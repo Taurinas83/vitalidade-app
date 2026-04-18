@@ -8,7 +8,46 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Vitalidade 40+">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Vitalidade 40+ - Personal Trainer IA especializado em homens acima de 40 anos. Treinos personalizados para hipertrofia, redução de gordura visceral e vitalidade.">
+    <meta name="keywords" content="personal trainer, musculação, hipertrofia, treino 40 anos, emagrecimento, BFR, IA fitness">
+    <meta name="author" content="Vitalidade 40+">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vitalidade-app.vercel.app/">
+    <meta property="og:title" content="Vitalidade 40+ | IA Personal Trainer Premium">
+    <meta property="og:description" content="Personal Trainer IA especializado em homens acima de 40 anos. Treinos personalizados para hipertrofia e redução de gordura visceral.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1200&h=630&fit=crop">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vitalidade-app.vercel.app/">
+    <meta name="twitter:title" content="Vitalidade 40+ | IA Personal Trainer Premium">
+    <meta name="twitter:description" content="Personal Trainer IA especializado em homens acima de 40 anos.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1200&h=630&fit=crop">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Vitalidade 40+">
+    
+    <!-- Performance: Preload & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://mdhizwhomaovsxwxfnwf.supabase.co">
+    <link rel="dns-prefetch" href="https://api.groq.com">
+    
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <title>Vitalidade 40+ | IA Personal Trainer Premium</title>
+    
     <script>
         // Gera o ícone V40+ via canvas e aplica como favicon + apple-touch-icon
         (function () {
@@ -16,12 +55,10 @@
                 var c = document.createElement('canvas');
                 c.width = c.height = 512;
                 var x = c.getContext('2d');
-                // Gradiente diagonal azul → roxo
                 var g = x.createLinearGradient(0, 0, 512, 512);
                 g.addColorStop(0, '#0ea5e9');
                 g.addColorStop(1, '#8b5cf6');
                 x.fillStyle = g;
-                // Rounded rect (equivalente ao rounded-3xl)
                 var r = 112;
                 x.beginPath();
                 x.moveTo(r, 0); x.lineTo(512 - r, 0); x.arcTo(512, 0, 512, r, r);
@@ -29,28 +66,25 @@
                 x.lineTo(r, 512); x.arcTo(0, 512, 0, 512 - r, r);
                 x.lineTo(0, r); x.arcTo(0, 0, r, 0, r);
                 x.closePath(); x.fill();
-                // Texto V40+
                 x.fillStyle = 'white';
                 x.font = '900 195px "Arial Black", Arial, sans-serif';
                 x.textAlign = 'center';
                 x.textBaseline = 'middle';
                 x.fillText('V40+', 256, 262);
                 var d = c.toDataURL('image/png');
-                // Favicon
                 var lf = document.createElement('link');
                 lf.rel = 'icon'; lf.type = 'image/png'; lf.href = d;
                 document.head.appendChild(lf);
-                // Apple Touch Icon (180×180 escalado automaticamente pelo iOS)
                 var la = document.createElement('link');
                 la.rel = 'apple-touch-icon'; la.sizes = '512x512'; la.href = d;
                 document.head.appendChild(la);
             } catch (e) { }
         })();
     </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -66,6 +100,9 @@
                     animation: {
                         'gradient-x': 'gradient-x 3s ease infinite',
                         'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.3s ease-out',
+                        'fade-in': 'fade-in 0.3s ease-out',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
                     },
                     keyframes: {
                         'gradient-x': {
@@ -75,16 +112,30 @@
                         'float': {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-5px)' },
+                        },
+                        'slide-up': {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(14, 165, 233, 0.5)' },
+                            '50%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.8)' }
                         }
                     }
                 }
             }
         }
     </script>
+    
     <style>
         html {
             overflow-x: hidden;
             max-width: 100%;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -95,6 +146,7 @@
             overflow-x: hidden;
             max-width: 100%;
             -webkit-tap-highlight-color: transparent;
+            font-family: 'Outfit', sans-serif;
         }
 
         .glass-panel {
@@ -122,7 +174,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -183,20 +234,17 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            60%,
-            100% {
+            0%, 60%, 100% {
                 transform: translateY(0);
             }
-
             30% {
                 transform: translateY(-6px);
             }
         }
 
         input,
-        select {
+        select,
+        textarea {
             background: rgba(30, 41, 59, 0.6) !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             border-radius: 14px !important;
@@ -206,14 +254,22 @@
             box-sizing: border-box;
             font-size: 15px !important;
             transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif !important;
         }
 
         input:focus,
-        select:focus {
+        select:focus,
+        textarea:focus {
             outline: none !important;
             border-color: #0ea5e9 !important;
             box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2) !important;
             background: rgba(30, 41, 59, 0.9) !important;
+        }
+
+        input.error,
+        select.error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
         }
 
         ::-webkit-scrollbar {
@@ -239,69 +295,209 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 80px;
+            right: 16px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 320px;
+        }
+
+        .toast {
+            padding: 14px 18px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 500;
+            animation: slide-up 0.3s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .toast-error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .toast-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .toast-info {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 8px;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Pull to Refresh */
+        .ptr-indicator {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-60px);
+            width: 40px;
+            height: 40px;
+            background: rgba(14, 165, 233, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .ptr-indicator.active {
+            transform: translateX(-50%) translateY(20px);
+        }
+
+        .ptr-indicator.loading {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translateX(-50%) translateY(20px) rotate(0deg); }
+            to { transform: translateX(-50%) translateY(20px) rotate(360deg); }
+        }
+
+        /* Install Banner */
+        .install-banner {
+            position: fixed;
+            bottom: 100px;
+            left: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+            padding: 16px;
+            border-radius: 16px;
+            z-index: 50;
+            animation: slide-up 0.3s ease-out;
+        }
+
+        /* Offline indicator */
+        .offline-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 9999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .offline-indicator.show {
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="offline-indicator" role="alert">
+        📴 Você está offline - Algumas funcionalidades podem não estar disponíveis
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Pull to Refresh Indicator -->
+    <div id="ptr-indicator" class="ptr-indicator" aria-hidden="true">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+    </div>
+
+    <!-- Install PWA Banner -->
+    <div id="install-banner" class="install-banner hidden">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">💪</div>
+            <div class="flex-1">
+                <p class="font-bold text-white text-sm">Instalar Vitalidade 40+</p>
+                <p class="text-white/80 text-xs">Acesse offline e tenha melhor desempenho</p>
+            </div>
+            <button onclick="installPWA()" class="bg-white text-primary px-4 py-2 rounded-xl font-bold text-sm hover:bg-white/90 transition-colors">
+                Instalar
+            </button>
+            <button onclick="dismissInstallBanner()" class="text-white/60 hover:text-white p-1" aria-label="Fechar">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- Setup Screen (Auth) -->
     <div id="auth-screen" class="fixed inset-0 bg-dark flex flex-col items-center p-6 z-50 overflow-y-auto pt-16">
-        <div
-            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center opacity-10">
-        </div>
-        <div
-            class="glass-panel w-full max-w-sm space-y-4 text-center p-8 rounded-3xl relative z-10 border-t border-l border-white/10 mx-auto">
-            <div
-                class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-3xl mx-auto flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.3)] mb-2 animate-float">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        <div class="glass-panel w-full max-w-sm space-y-4 text-center p-8 rounded-3xl relative z-10 border-t border-l border-white/10 mx-auto">
+            <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-3xl mx-auto flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.3)] mb-2 animate-float">
                 <span class="text-4xl text-white font-extrabold tracking-tighter">V40+</span>
             </div>
             <div>
-                <h1 class="text-3xl font-black bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-                    Vitalidade</h1>
+                <h1 class="text-3xl font-black bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Vitalidade</h1>
                 <p class="text-primary font-medium text-xs tracking-widest uppercase mt-1">Treinador Virtual</p>
             </div>
 
             <div id="auth-forms" class="space-y-4 pt-4 border-t border-white/10">
-                <p class="text-xs text-slate-400 mb-4 px-2">Crie sua conta abaixo ou acesse para sincronizar seus
-                    treinos de qualquer lugar.</p>
+                <p class="text-xs text-slate-400 mb-4 px-2">Crie sua conta abaixo ou acesse para sincronizar seus treinos de qualquer lugar.</p>
                 <div class="space-y-3">
-                    <input type="email" id="auth-email" placeholder="Seu E-mail" autocomplete="email">
-                    <input type="password" id="auth-password" placeholder="Sua Senha" autocomplete="current-password">
-
-                    <button onclick="handleAuth('login')"
-                        class="w-full bg-gradient-to-r from-primary to-blue-600 text-white py-3.5 rounded-2xl font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-blue-900/20">
+                    <input type="email" id="auth-email" placeholder="Seu E-mail" autocomplete="email" aria-label="E-mail">
+                    <input type="password" id="auth-password" placeholder="Sua Senha (mín. 6 caracteres)" autocomplete="current-password" aria-label="Senha" minlength="6">
+                    
+                    <button onclick="handleAuth('login')" class="w-full bg-gradient-to-r from-primary to-blue-600 text-white py-3.5 rounded-2xl font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-blue-900/20">
                         Acessar Conta
                     </button>
-                    <button onclick="handleAuth('signup')"
-                        class="w-full bg-slate-800 border border-slate-700 text-slate-300 py-3 rounded-2xl font-bold hover:bg-slate-700 active:scale-95 transition-all">
+                    <button onclick="handleAuth('signup')" class="w-full bg-slate-800 border border-slate-700 text-slate-300 py-3 rounded-2xl font-bold hover:bg-slate-700 active:scale-95 transition-all">
                         Criar Nova Conta
                     </button>
                 </div>
-                <p id="auth-error" class="text-red-400 text-xs font-medium hidden bg-red-900/30 p-2 rounded-lg mt-2">
-                </p>
-                <div id="setup-warnings"
-                    class="hidden text-left bg-red-900/30 border border-red-500/50 p-3 rounded-xl mt-4"></div>
+                <p id="auth-error" class="text-red-400 text-xs font-medium hidden bg-red-900/30 p-2 rounded-lg mt-2"></p>
+                <div id="setup-warnings" class="hidden text-left bg-red-900/30 border border-red-500/50 p-3 rounded-xl mt-4"></div>
             </div>
         </div>
     </div>
 
     <!-- Header App -->
-    <header id="app-header"
-        class="fixed top-0 w-full z-40 glass-panel px-5 py-3 flex justify-between items-center hidden border-b border-white/5">
+    <header id="app-header" class="fixed top-0 w-full z-40 glass-panel px-5 py-3 flex justify-between items-center hidden border-b border-white/5">
         <div class="flex items-center gap-3">
-            <div
-                class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
                 <span class="text-white font-bold text-lg">V</span>
             </div>
             <div>
                 <h1 class="font-bold text-base text-white tracking-wide">Vitalidade 40+</h1>
-                <p class="text-[11px] text-primary uppercase tracking-wider font-semibold" id="ai-status">Coach
-                    Integrativo</p>
+                <p class="text-[11px] text-primary uppercase tracking-wider font-semibold" id="ai-status">Coach Integrativo</p>
             </div>
         </div>
-        <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full"
-            id="ai-indicator">
-            <div class="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></div>
-            <span class="text-[10px] text-emerald-400 font-bold tracking-wide">IA ATIVA</span>
+        <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full" id="ai-indicator">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></div>
+                <span class="text-[10px] text-emerald-400 font-bold tracking-wide">IA ATIVA</span>
+            </div>
         </div>
     </header>
 
@@ -314,41 +510,26 @@
         <!-- IA CHAT -->
         <div id="page-ia" class="page flex-col h-[calc(100vh-160px)]">
             <div class="glass-panel mb-3 p-3 rounded-2xl flex items-center gap-3 relative">
-                <div
-                    class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-xl border border-slate-700">
-                    🧠</div>
+                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-xl border border-slate-700">🧠</div>
                 <div>
                     <h3 class="text-xs font-bold text-slate-200">Biomecânica & Longevidade</h3>
                     <p class="text-[10px] text-slate-400">Padrões TAURIAN | Especialista +40</p>
                 </div>
             </div>
 
-            <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 pb-56 pr-1">
-                <!-- Chat goes here -->
-            </div>
+            <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 pb-56 pr-1"></div>
 
             <div class="fixed bottom-20 left-0 right-0 px-4 glass-panel pt-3 pb-4 border-t border-white/10 z-30">
                 <div class="flex gap-2 mb-3 overflow-x-auto pb-1 hide-scrollbar">
-                    <button
-                        onclick="prompt('Gerar meu Treino Concorrente de hoje (foco evitar fadiga e hipertrofia segura)')"
-                        class="whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-xs px-4 py-2 rounded-xl border border-slate-600 font-medium transition-colors">🔥
-                        Gerar Treino Seguro</button>
-                    <button onclick="prompt('Resumo metabólico: Como HIIT me ajuda a perder gordura visceral?')"
-                        class="whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-xs px-4 py-2 rounded-xl border border-slate-600 font-medium transition-colors">💥
-                        Secar Visceral</button>
-                    <button onclick="prompt('Explicar Restrição de Fluxo Sanguíneo (BFR) para dores nas articulações')"
-                        class="whitespace-nowrap bg-primary/20 text-primary text-xs px-4 py-2 rounded-xl border border-primary/30 font-bold transition-colors">🩸
-                        Método BFR</button>
+                    <button onclick="prompt('Gerar meu Treino Concorrente de hoje (foco evitar fadiga e hipertrofia segura)')" class="whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-xs px-4 py-2 rounded-xl border border-slate-600 font-medium transition-colors">🔥 Gerar Treino Seguro</button>
+                    <button onclick="prompt('Resumo metabólico: Como HIIT me ajuda a perder gordura visceral?')" class="whitespace-nowrap bg-slate-800 hover:bg-slate-700 text-xs px-4 py-2 rounded-xl border border-slate-600 font-medium transition-colors">💥 Secar Visceral</button>
+                    <button onclick="prompt('Explicar Restrição de Fluxo Sanguíneo (BFR) para dores nas articulações')" class="whitespace-nowrap bg-primary/20 text-primary text-xs px-4 py-2 rounded-xl border border-primary/30 font-bold transition-colors">🩸 Método BFR</button>
                 </div>
                 <div class="flex gap-2 relative">
-                    <input type="text" id="chat-input" placeholder="Qual músculo deseja treinar hoje?"
-                        onkeypress="if(event.key==='Enter')send()"
-                        class="pl-4 pr-12 py-3.5 bg-slate-900 border-slate-700 text-sm">
-                    <button onclick="send()"
-                        class="absolute right-1 top-1 bottom-1 w-11 bg-primary rounded-xl flex items-center justify-center hover:bg-blue-500 transition-colors">
+                    <input type="text" id="chat-input" placeholder="Qual músculo deseja treinar hoje?" onkeypress="if(event.key==='Enter')send()" class="pl-4 pr-12 py-3.5 bg-slate-900 border-slate-700 text-sm" aria-label="Mensagem para o coach IA">
+                    <button onclick="send()" class="absolute right-1 top-1 bottom-1 w-11 bg-primary rounded-xl flex items-center justify-center hover:bg-blue-500 transition-colors" aria-label="Enviar mensagem">
                         <svg class="w-5 h-5 text-white ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                         </svg>
                     </button>
                 </div>
@@ -379,60 +560,47 @@
     </main>
 
     <!-- Navigation -->
-    <nav id="app-nav"
-        class="fixed bottom-0 left-0 right-0 glass-panel border-t border-white/5 flex justify-around pt-3 pb-6 z-40 hidden">
-        <button class="nav-item active flex flex-col items-center gap-1 text-slate-400 w-14"
-            onclick="showPage('home', this)">
+    <nav id="app-nav" class="fixed bottom-0 left-0 right-0 glass-panel border-t border-white/5 flex justify-around pt-3 pb-6 z-40 hidden">
+        <button class="nav-item active flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('home', this)" aria-label="Página inicial">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Início</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('ia', this)">
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('ia', this)" aria-label="Chat com IA">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">IA Coach</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
-            onclick="showPage('programa', this)">
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('programa', this)" aria-label="Programa de treinos">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Programa</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
-            onclick="showPage('historico', this)">
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('historico', this)" aria-label="Histórico de treinos">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Evolução</span>
         </button>
-        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14"
-            onclick="showPage('perfil', this)">
+        <button class="nav-item flex flex-col items-center gap-1 text-slate-400 w-14" onclick="showPage('perfil', this)" aria-label="Perfil do usuário">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
             <span class="text-[10px] font-bold tracking-wide">Perfil</span>
         </button>
     </nav>
 
     <!-- MODAL PREMIUM -->
-    <div id="modal"
-        class="fixed inset-0 bg-black/80 z-50 hidden opacity-0 transition-opacity duration-300 items-end sm:items-center justify-center p-0 sm:p-4 pb-0 backdrop-blur-sm">
-        <div class="glass-panel w-full sm:max-w-md h-[85vh] sm:h-auto sm:max-h-[85vh] rounded-t-3xl sm:rounded-3xl flex flex-col shadow-2xl transform translate-y-full transition-transform duration-300"
-            id="modal-content-wrapper">
+    <div id="modal" class="fixed inset-0 bg-black/80 z-50 hidden opacity-0 transition-opacity duration-300 items-end sm:items-center justify-center p-0 sm:p-4 pb-0 backdrop-blur-sm">
+        <div class="glass-panel w-full sm:max-w-md h-[85vh] sm:h-auto sm:max-h-[85vh] rounded-t-3xl sm:rounded-3xl flex flex-col shadow-2xl transform translate-y-full transition-transform duration-300" id="modal-content-wrapper">
             <div class="p-5 border-b border-white/10 flex justify-between items-center bg-slate-900/50 rounded-t-3xl">
                 <h3 id="modal-title" class="text-xl font-bold tracking-tight text-white"></h3>
-                <button onclick="closeModal()"
-                    class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:bg-white/20 hover:text-white transition-colors">
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:bg-white/20 hover:text-white transition-colors" aria-label="Fechar modal">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -441,20 +609,18 @@
     </div>
 
     <!-- ==============================================================
-         CONFIGURAÇÕES PRINCIPAIS DO SISTEMA AUTOMÁTICO ONLINE
-         COLOQUE SUAS CHAVES AQUI PARA FICAR 100% AUTOMÁTICO
+         CONFIGURAÇÕES E SCRIPTS PRINCIPAIS
          ============================================================== -->
     <script>
-        // Configuração do Supabase (publishable key — seguro para o frontend)
+        // ================================================================
+        // CONFIGURAÇÃO SUPABASE
+        // ================================================================
         const SUPABASE_URL = "https://mdhizwhomaovsxwxfnwf.supabase.co";
         const SUPABASE_ANON_KEY = "sb_publishable_dUhtXtTQ2r2XbpJfFucT4A_ejgfjBtN";
 
-        // A GEMINI_API_KEY NÃO fica no frontend.
-        // Ela é configurada como variável de ambiente no Vercel (GEMINI_API_KEY)
-        // e usada exclusivamente pelo servidor em /api/chat.
-
-        // ==============================================================
-
+        // ================================================================
+        // ESTADO GLOBAL
+        // ================================================================
         let sb = null;
         let isSupabaseConfigured = SUPABASE_ANON_KEY && SUPABASE_ANON_KEY.length > 10;
         let user = null;
@@ -462,44 +628,234 @@
         let workouts = [];
         let activeProgram = null;
         let recentCheckins = [];
+        let deferredPrompt = null; // PWA install
+        let isOnline = navigator.onLine;
 
-        // Checkup Visual se as chaves existem
+        // ================================================================
+        // SERVICE WORKER REGISTRATION
+        // ================================================================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // ================================================================
+        // PWA INSTALL PROMPT
+        // ================================================================
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Show install banner after 3 seconds if not dismissed before
+            const dismissed = localStorage.getItem('pwa-install-dismissed');
+            if (!dismissed) {
+                setTimeout(() => {
+                    document.getElementById('install-banner').classList.remove('hidden');
+                }, 3000);
+            }
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        showToast('Vitalidade 40+ instalado com sucesso!', 'success');
+                    }
+                    deferredPrompt = null;
+                    document.getElementById('install-banner').classList.add('hidden');
+                });
+            }
+        }
+
+        function dismissInstallBanner() {
+            document.getElementById('install-banner').classList.add('hidden');
+            localStorage.setItem('pwa-install-dismissed', 'true');
+        }
+
+        // ================================================================
+        // ONLINE/OFFLINE DETECTION
+        // ================================================================
+        window.addEventListener('online', () => {
+            isOnline = true;
+            document.getElementById('offline-indicator').classList.remove('show');
+            showToast('Conexão restaurada!', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            isOnline = false;
+            document.getElementById('offline-indicator').classList.add('show');
+            showToast('Você está offline', 'warning');
+        });
+
+        // ================================================================
+        // TOAST NOTIFICATION SYSTEM
+        // ================================================================
+        function showToast(message, type = 'info', duration = 4000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">${type === 'success' ? '✅' : type === 'error' ? '❌' : type === 'warning' ? '⚠️' : 'ℹ️'}</span>
+                    <span>${escapeHtml(message)}</span>
+                </div>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100px)';
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+
+        // ================================================================
+        // INPUT VALIDATION & SANITIZATION
+        // ================================================================
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            return password && password.length >= 6;
+        }
+
+        function showInputError(inputId, message) {
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.classList.add('error');
+                setTimeout(() => input.classList.remove('error'), 3000);
+            }
+            showToast(message, 'error');
+        }
+
+        // ================================================================
+        // PULL TO REFRESH (Mobile)
+        // ================================================================
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isRefreshing = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            if (window.scrollY === 0 && !isRefreshing) {
+                touchEndY = e.touches[0].clientY;
+                const diff = touchEndY - touchStartY;
+                if (diff > 80) {
+                    document.getElementById('ptr-indicator').classList.add('active');
+                }
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            const diff = touchEndY - touchStartY;
+            if (diff > 80 && window.scrollY === 0 && !isRefreshing) {
+                triggerRefresh();
+            }
+            document.getElementById('ptr-indicator').classList.remove('active');
+            touchStartY = 0;
+            touchEndY = 0;
+        });
+
+        async function triggerRefresh() {
+            if (isRefreshing || !user) return;
+            isRefreshing = true;
+            
+            const indicator = document.getElementById('ptr-indicator');
+            indicator.classList.add('loading');
+
+            try {
+                await loadData();
+                showToast('Dados atualizados!', 'success');
+            } catch (e) {
+                showToast('Erro ao atualizar', 'error');
+            } finally {
+                indicator.classList.remove('loading');
+                isRefreshing = false;
+            }
+        }
+
+        // ================================================================
+        // CHECKUP DE CONFIGURAÇÃO
+        // ================================================================
         const warningsBox = document.getElementById('setup-warnings');
         if (!isSupabaseConfigured) {
             warningsBox.classList.remove('hidden');
             warningsBox.innerHTML += `<p class="text-[10px] text-red-200 mb-2"><b>❌ BD AUSENTE:</b> Configure as variáveis SUPABASE_URL e SUPABASE_ANON_KEY no Vercel.</p>`;
         }
 
+        // ================================================================
+        // SUPABASE INITIALIZATION
+        // ================================================================
         if (isSupabaseConfigured) {
             try {
                 sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                
                 sb.auth.onAuthStateChange((event, session) => {
-                    if (event === 'SIGNED_IN') { user = session.user; initApp(); }
-                    else if (event === 'SIGNED_OUT') location.reload();
+                    if (event === 'SIGNED_IN') {
+                        user = session.user;
+                        initApp();
+                    } else if (event === 'SIGNED_OUT') {
+                        location.reload();
+                    }
                 });
+
                 sb.auth.getSession().then(({ data: { session } }) => {
-                    if (session) { user = session.user; initApp(); }
-                }).catch(err => console.log('Sessão expiada', err));
+                    if (session) {
+                        user = session.user;
+                        initApp();
+                    }
+                }).catch(err => console.log('Sessão expirada', err));
             } catch (e) {
                 console.error("Supabase Error", e);
+                showToast('Erro ao conectar com o banco de dados', 'error');
             }
         }
 
-        // ==============================================================
+        // ================================================================
         // AUTENTICAÇÃO
-        // ==============================================================
+        // ================================================================
         async function handleAuth(type) {
             if (!isSupabaseConfigured) {
-                document.getElementById('auth-error').textContent = 'O desenvolvedor precisa configurar a chave do banco (Supabase) no código HTML para o login funcionar.';
-                document.getElementById('auth-error').classList.remove('hidden');
+                showToast('Banco de dados não configurado', 'error');
                 return;
             }
 
-            const email = document.getElementById('auth-email').value;
+            const email = document.getElementById('auth-email').value.trim();
             const pass = document.getElementById('auth-password').value;
             const errEl = document.getElementById('auth-error');
 
-            if (!email || !pass) { errEl.textContent = 'Preencha e-mail e senha.'; errEl.classList.remove('hidden'); return; }
+            // Validation
+            if (!email) {
+                showInputError('auth-email', 'Digite seu e-mail');
+                return;
+            }
+            if (!validateEmail(email)) {
+                showInputError('auth-email', 'E-mail inválido');
+                return;
+            }
+            if (!validatePassword(pass)) {
+                showInputError('auth-password', 'Senha deve ter no mínimo 6 caracteres');
+                return;
+            }
 
             try {
                 const res = type === 'signup'
@@ -509,11 +865,17 @@
                 if (res.error) throw res.error;
 
                 if (type === 'signup' && res.data.user) {
-                    await sb.from('profiles').upsert({ id: res.data.user.id, name: email.split('@')[0], created_at: new Date().toISOString() });
-                    alert("Conta Criada! Você já pode entrar.");
+                    await sb.from('profiles').upsert({
+                        id: res.data.user.id,
+                        name: email.split('@')[0],
+                        created_at: new Date().toISOString()
+                    });
+                    showToast('Conta criada com sucesso!', 'success');
                 }
             } catch (ex) {
-                errEl.textContent = ex.message || "Erro no login."; errEl.classList.remove('hidden');
+                errEl.textContent = ex.message || "Erro no login.";
+                errEl.classList.remove('hidden');
+                showToast('Erro: ' + (ex.message || 'Falha na autenticação'), 'error');
             }
         }
 
@@ -551,22 +913,32 @@
                 recentCheckins = ci || [];
             } catch (e) {
                 console.error("Falha ao puxar os dados do usuário:", e);
+                showToast('Erro ao carregar dados', 'error');
             }
         }
 
-        // ==============================================================
+        // ================================================================
         // NAVEGAÇÃO & UI RENDERING
-        // ==============================================================
+        // ================================================================
         function showPage(pageId, btnElement) {
-            document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
+            
             const target = document.getElementById(`page-${pageId}`);
             target.style.display = pageId === 'ia' ? 'flex' : 'block';
             setTimeout(() => target.classList.add('active'), 10);
 
             if (btnElement) {
-                document.querySelectorAll('.nav-item').forEach(b => { b.classList.remove('active'); b.classList.add('text-slate-400'); });
-                btnElement.classList.add('active'); btnElement.classList.remove('text-slate-400');
+                document.querySelectorAll('.nav-item').forEach(b => {
+                    b.classList.remove('active');
+                    b.classList.add('text-slate-400');
+                });
+                btnElement.classList.add('active');
+                btnElement.classList.remove('text-slate-400');
             }
+            
             if (pageId === 'home') renderHome();
             if (pageId === 'perfil') renderProfile();
             if (pageId === 'historico') renderHistory();
@@ -580,8 +952,9 @@
             const dayNames = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
             const todayName = dayNames[new Date().getDay()];
             let todayDay = null;
+            
             if (activeProgram && activeProgram.program_data && activeProgram.program_data.days) {
-                todayDay = activeProgram.program_data.days.find(d => d.day === todayName || d.day.startsWith(todayName.slice(0,3)));
+                todayDay = activeProgram.program_data.days.find(d => d.day === todayName || d.day.startsWith(todayName.slice(0, 3)));
             }
 
             const programSection = activeProgram ? `
@@ -590,17 +963,17 @@
                     <div class="flex justify-between items-start mb-3 relative z-10">
                         <div>
                             <span class="text-[10px] text-primary font-bold uppercase tracking-widest">Programa Ativo</span>
-                            <h3 class="font-black text-white text-base mt-0.5">${activeProgram.program_data.name}</h3>
+                            <h3 class="font-black text-white text-base mt-0.5">${escapeHtml(activeProgram.program_data.name)}</h3>
                         </div>
                         <button onclick="showPage('programa', null)" class="text-xs text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-xl font-bold hover:bg-primary/20 transition-colors">Ver tudo</button>
                     </div>
                     ${todayDay ? `
                     <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-3 mb-3">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-emerald-400 text-xs font-bold uppercase">Hoje — ` + todayName + `</span>
+                            <span class="text-emerald-400 text-xs font-bold uppercase">Hoje — ${todayName}</span>
                             <span class="text-emerald-300 text-[11px]">${todayDay.exercises.length} exercícios</span>
                         </div>
-                        <p class="text-white font-bold text-sm">${todayDay.focus}</p>
+                        <p class="text-white font-bold text-sm">${escapeHtml(todayDay.focus)}</p>
                     </div>
                     <button onclick="startDayWorkout('${encodeURIComponent(JSON.stringify(todayDay))}')" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 py-3.5 rounded-2xl font-bold flex justify-center items-center gap-2 text-sm uppercase tracking-wider">
                         ▶ Treinar Agora
@@ -634,7 +1007,7 @@
             el.innerHTML = `
                 <div class="flex justify-between items-start mb-5 mt-2">
                     <div>
-                        <h2 class="text-2xl font-black mb-0.5">Olá, ${nm}</h2>
+                        <h2 class="text-2xl font-black mb-0.5">Olá, ${escapeHtml(nm)}</h2>
                         <p class="text-sm text-slate-400">${profile.age || '?'} anos • ${profile.objective === 'perda_gordura' ? 'Metabólico/HIIT' : 'Hipertrofia'}</p>
                     </div>
                     <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl border border-emerald-500/40">⚡</div>
@@ -695,45 +1068,45 @@
             const p = profile;
             document.getElementById('profile-content').innerHTML = `
                 <h2 class="text-2xl font-black mb-6">Prontuário Médico & Esportivo</h2>
-                <form id="profile-form" class="space-y-4 pb-20">
+                <form id="profile-form" class="space-y-4 pb-20" onsubmit="event.preventDefault(); saveProfileData();">
                     <div class="space-y-1">
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-2">Identificação</label>
-                        <input type="text" id="p_name" value="${p.name || ''}" placeholder="Nome Completo" required>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-2" for="p_name">Identificação</label>
+                        <input type="text" id="p_name" value="${escapeHtml(p.name || '')}" placeholder="Nome Completo" required>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-1">
-                            <label class="text-xs text-slate-400 font-bold uppercase ml-2">Idade biológica</label>
-                            <input type="number" id="p_age" value="${p.age || ''}" placeholder="Idade (>40)" required>
+                            <label class="text-xs text-slate-400 font-bold uppercase ml-2" for="p_age">Idade biológica</label>
+                            <input type="number" id="p_age" value="${p.age || ''}" placeholder="Idade (>40)" min="18" max="120" required>
                         </div>
                         <div class="space-y-1">
-                            <label class="text-xs text-slate-400 font-bold uppercase ml-2">Peso (kg)</label>
-                            <input type="number" id="p_weight" value="${p.weight || ''}" placeholder="Massa Corporal">
+                            <label class="text-xs text-slate-400 font-bold uppercase ml-2" for="p_weight">Peso (kg)</label>
+                            <input type="number" id="p_weight" value="${p.weight || ''}" placeholder="Massa Corporal" min="30" max="300" step="0.1">
                         </div>
                     </div>
                     <div class="space-y-1">
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-2">Nível Muscular Base</label>
-                        <select id="p_level" class="appearance-none">
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-2" for="p_level">Nível Muscular Base</label>
+                        <select id="p_level" class="appearance-none" required>
                             <option value="iniciante" ${p.level === 'iniciante' ? 'selected' : ''}>Adaptação Tíssular (Iniciante)</option>
                             <option value="intermediario" ${p.level === 'intermediario' ? 'selected' : ''}>Consolidado (Intermediário)</option>
                             <option value="avancado" ${p.level === 'avancado' ? 'selected' : ''}>Atleta Master (Avançado)</option>
                         </select>
                     </div>
                     <div class="space-y-1">
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-2">Alvo Fisiológico Principal</label>
-                        <select id="p_obj" class="appearance-none">
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-2" for="p_obj">Alvo Fisiológico Principal</label>
+                        <select id="p_obj" class="appearance-none" required>
                             <option value="hipertrofia" ${p.objective === 'hipertrofia' ? 'selected' : ''}>Sarcopenia: Foco Miofibrilar (Massa)</option>
                             <option value="perda_gordura" ${p.objective === 'perda_gordura' ? 'selected' : ''}>Reversão DAEM: Secar Gordura Visceral</option>
                         </select>
                     </div>
                     <div class="glass-panel p-4 rounded-2xl bg-red-900/10 border-red-500/20 mt-2">
-                        <label class="text-xs text-red-400 font-bold uppercase mb-2 block">Cálculo de Risco Articular</label>
+                        <label class="text-xs text-red-400 font-bold uppercase mb-2 block" for="p_inj">Cálculo de Risco Articular</label>
                         <select id="p_inj" class="border-red-500/30 text-red-100 bg-red-900/20">
                             <option value="false" ${!p.has_injury ? 'selected' : ''}>Articulações Saudáveis (Sem Restrição)</option>
                             <option value="true" ${p.has_injury ? 'selected' : ''}>⚠️ Possuo Desgaste Articular/Tendineo (Ativar BFR)</option>
                         </select>
                         <p class="text-[10px] text-slate-400 mt-2">Nota: Acionar esta flag recalibrará a IA para aplicar métodos de Restrição de Fluxo Sanguíneo (BFR).</p>
                     </div>
-                    <button type="button" onclick="saveProfileData()" class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-2xl font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(139,92,246,0.3)] mt-6">
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-2xl font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(139,92,246,0.3)] mt-6">
                         Atualizar e Salvar na Nuvem
                     </button>
                     
@@ -743,19 +1116,40 @@
         }
 
         async function saveProfileData() {
-            const data = {
-                name: document.getElementById('p_name').value,
-                age: Number(document.getElementById('p_age').value),
-                weight: Number(document.getElementById('p_weight').value),
-                level: document.getElementById('p_level').value,
-                objective: document.getElementById('p_obj').value,
-                has_injury: document.getElementById('p_inj').value === 'true'
-            };
+            const name = document.getElementById('p_name').value.trim();
+            const age = Number(document.getElementById('p_age').value);
+            const weight = Number(document.getElementById('p_weight').value);
+            const level = document.getElementById('p_level').value;
+            const objective = document.getElementById('p_obj').value;
+            const has_injury = document.getElementById('p_inj').value === 'true';
+
+            // Validation
+            if (!name || name.length < 2) {
+                showInputError('p_name', 'Nome deve ter pelo menos 2 caracteres');
+                return;
+            }
+            if (!age || age < 18 || age > 120) {
+                showInputError('p_age', 'Idade deve estar entre 18 e 120');
+                return;
+            }
+
+            const data = { name, age, weight, level, objective, has_injury };
             profile = { ...profile, ...data };
 
-            const { error } = await sb.from('profiles').upsert({ id: user.id, ...data, updated_at: new Date().toISOString() });
-            alert(error ? 'Erro: ' + error.message : 'Prontuário salvo na Nuvem com sucesso!');
-            renderHome();
+            try {
+                const { error } = await sb.from('profiles').upsert({
+                    id: user.id,
+                    ...data,
+                    updated_at: new Date().toISOString()
+                });
+                
+                if (error) throw error;
+                
+                showToast('Prontuário salvo com sucesso!', 'success');
+                renderHome();
+            } catch (e) {
+                showToast('Erro ao salvar: ' + e.message, 'error');
+            }
         }
 
         function renderProgram() {
@@ -772,12 +1166,13 @@
                     </div>`;
                 return;
             }
+            
             const prog = activeProgram.program_data;
             const dayNames = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
             const todayName = dayNames[new Date().getDay()];
 
             const daysHtml = prog.days.map(day => {
-                const isToday = day.day === todayName || day.day.startsWith(todayName.slice(0,3));
+                const isToday = day.day === todayName || day.day.startsWith(todayName.slice(0, 3));
                 const exHtml = day.exercises.map((e, idx) => buildExerciseCard(e, idx)).join('');
 
                 return `
@@ -785,11 +1180,11 @@
                         <div class="p-4 ${isToday ? 'bg-emerald-500/10' : 'bg-slate-900/50'} flex justify-between items-center">
                             <div>
                                 ${isToday ? '<span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wide block mb-0.5">Hoje</span>' : ''}
-                                <h4 class="font-black text-white">${day.day}</h4>
-                                <p class="text-sm ${isToday ? 'text-emerald-300' : 'text-slate-400'} font-medium">${day.focus}</p>
+                                <h4 class="font-black text-white">${escapeHtml(day.day)}</h4>
+                                <p class="text-sm ${isToday ? 'text-emerald-300' : 'text-slate-400'} font-medium">${escapeHtml(day.focus)}</p>
                             </div>
                             <div class="flex gap-2">
-                                <button onclick="showCheckinModal('${day.day} - ${day.focus}')" class="text-xs bg-accent/20 border border-accent/30 text-accent px-3 py-1.5 rounded-xl font-bold hover:bg-accent/30 transition-colors">Check-in</button>
+                                <button onclick="showCheckinModal('${escapeHtml(day.day)} - ${escapeHtml(day.focus)}')" class="text-xs bg-accent/20 border border-accent/30 text-accent px-3 py-1.5 rounded-xl font-bold hover:bg-accent/30 transition-colors">Check-in</button>
                             </div>
                         </div>
                         <div class="p-3">${exHtml}</div>
@@ -799,13 +1194,13 @@
             const notesHtml = prog.notes && prog.notes.length ? `
                 <div class="glass-panel rounded-2xl p-4 mb-4 border border-white/5">
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">Notas do Coach</h4>
-                    ${prog.notes.map(n => `<p class="text-sm text-slate-300 mb-1">• ${n}</p>`).join('')}
+                    ${prog.notes.map(n => `<p class="text-sm text-slate-300 mb-1">• ${escapeHtml(n)}</p>`).join('')}
                 </div>` : '';
 
             el.innerHTML = `
                 <div class="flex justify-between items-center mb-5">
                     <div>
-                        <h2 class="text-2xl font-black">${prog.name}</h2>
+                        <h2 class="text-2xl font-black">${escapeHtml(prog.name)}</h2>
                         <p class="text-sm text-slate-400">Programa de 5 dias</p>
                     </div>
                     <button onclick="promptAnalysis()" class="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-2 rounded-xl font-bold">Analisar Progresso</button>
@@ -826,7 +1221,7 @@
                     return `
                     <div class="glass-panel p-4 rounded-2xl cursor-pointer hover:bg-slate-800 transition shadow-sm" onclick="showWorkoutDetail('${w.id}')">
                         <div class="flex justify-between items-start mb-2">
-                            <span class="font-bold text-sm text-slate-200">${w.workout_data.name || 'Sessão Metabólica'}</span>
+                            <span class="font-bold text-sm text-slate-200">${escapeHtml(w.workout_data.name || 'Sessão Metabólica')}</span>
                             <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded font-mono">${data}</span>
                         </div>
                         <div class="flex gap-2 items-center">
@@ -835,21 +1230,31 @@
                             ? '<span class="tag bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-xs font-semibold flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Concluído</span>'
                             : '<span class="tag bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded text-xs font-semibold flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Pendente</span>'}
                         </div>
-                    </div>`
+                    </div>`;
                 }).join('');
         }
 
-        // ==============================================================
+        // ================================================================
         // MOTOR DE IA
-        // ==============================================================
-        function prompt(t) { document.getElementById('chat-input').value = t; send(); }
+        // ================================================================
+        function prompt(t) {
+            document.getElementById('chat-input').value = t;
+            send();
+        }
 
         async function send() {
+            if (!isOnline) {
+                showToast('Você está offline. Conecte-se para usar a IA.', 'warning');
+                return;
+            }
+
             const input = document.getElementById('chat-input');
             const msg = input.value.trim();
             if (!msg) return;
 
-            input.value = ''; addChatMsg('user', msg); showTyping();
+            input.value = '';
+            addChatMsg('user', msg);
+            showTyping();
 
             try {
                 const responseContent = await callAI(msg);
@@ -866,26 +1271,27 @@
 
             } catch (err) {
                 hideTyping();
-                addChatMsg('ai', 'Falha na conexão de inteligência. Verifique a chave GROQ no Vercel.');
+                addChatMsg('ai', 'Falha na conexão de inteligência. Verifique sua conexão ou tente novamente.');
+                showToast('Erro ao conectar com a IA', 'error');
                 console.error(err);
             }
         }
 
         async function saveProgramAndRender(programData, isUpdate) {
             try {
-                // Desativar programa anterior
                 if (activeProgram) {
                     await sb.from('programs').update({ active: false }).eq('id', activeProgram.id);
                 }
-                // Salvar novo programa
                 const { data: saved } = await sb.from('programs').insert({
                     user_id: user.id,
                     program_data: programData,
                     active: true
                 }).select().single();
                 activeProgram = saved;
+                showToast(isUpdate ? 'Programa atualizado!' : 'Novo programa salvo!', 'success');
             } catch (e) {
                 console.error('Erro ao salvar programa:', e);
+                showToast('Erro ao salvar programa', 'error');
             }
             renderProgramInChat(programData, isUpdate);
             renderHome();
@@ -906,70 +1312,66 @@
             return await response.json();
         }
 
-        function fallbackTAURIANMock(text, p) {
-            const t = text.toLowerCase();
-            if (t.includes('treino')) {
-                return {
-                    text: `Modo Guiado! Montei o protocolo base visando sobrecarga metabólica para Sarcopenia. ${p.has_injury ? 'Com BFR devida a sua restrição.' : ''}`,
-                    isWorkout: true,
-                    workout: {
-                        name: "Vitalidade Premium (Modo Guiado)",
-                        exercises: [
-                            { n: 'Supino Reto Convergente', sets: 4, reps: '8-10', t: 90, bfr: false, c: ['3 seg de Excêntrica'], video_url: 'https://vimeo.com/12345' },
-                            { n: 'Leg Press Isolado', sets: 4, reps: '12-15', t: 120, bfr: p.has_injury, c: ['Evite trancos nas patelas'], video_url: 'https://vimeo.com/23456' },
-                        ]
-                    }
-                };
-            }
-            return { text: "Os protocolos offline estão ativos! Cole sua chave Gemini no código HTML para desbloquear a resposta dinâmica ilimitada.", isWorkout: false };
-        }
-
         function addChatMsg(type, html) {
             const c = document.getElementById('chat-messages');
-            const d = document.createElement('div'); d.className = `chat-msg chat-${type}`; d.innerHTML = html;
-            c.appendChild(d); c.scrollTop = c.scrollHeight;
+            const d = document.createElement('div');
+            d.className = `chat-msg chat-${type}`;
+            d.innerHTML = html;
+            c.appendChild(d);
+            c.scrollTop = c.scrollHeight;
         }
+
         function showTyping() {
             const c = document.getElementById('chat-messages');
-            const d = document.createElement('div'); d.id = 'typing'; d.className = 'chat-msg chat-ai px-4 py-3 w-fit';
+            const d = document.createElement('div');
+            d.id = 'typing';
+            d.className = 'chat-msg chat-ai px-4 py-3 w-fit';
             d.innerHTML = '<div class="typing flex"><span></span><span></span><span></span></div>';
-            c.appendChild(d); c.scrollTop = c.scrollHeight;
+            c.appendChild(d);
+            c.scrollTop = c.scrollHeight;
         }
-        function hideTyping() { const d = document.getElementById('typing'); if (d) d.remove(); }
 
-        // ── Shared exercise card builder ──────────────────────────────
+        function hideTyping() {
+            const d = document.getElementById('typing');
+            if (d) d.remove();
+        }
+
+        // ================================================================
+        // SHARED EXERCISE CARD BUILDER
+        // ================================================================
         function buildExerciseCard(e, idx) {
             const cid = 'ex-' + Math.random().toString(36).slice(2, 8);
             const descHtml = (e.desc || []).map((s, i) =>
-                `<div class="flex gap-2 mb-1.5"><span class="text-primary font-black text-[11px] flex-shrink-0 w-4">${i+1}.</span><span class="text-slate-300 text-[12px] leading-snug">${s}</span></div>`
+                `<div class="flex gap-2 mb-1.5"><span class="text-primary font-black text-[11px] flex-shrink-0 w-4">${i + 1}.</span><span class="text-slate-300 text-[12px] leading-snug">${escapeHtml(s)}</span></div>`
             ).join('');
             const mistakesHtml = (e.mistakes || []).map(m =>
-                `<div class="flex gap-2 mb-1"><span class="text-red-400 flex-shrink-0 text-[11px]">✗</span><span class="text-slate-400 text-[11px] leading-snug">${m}</span></div>`
+                `<div class="flex gap-2 mb-1"><span class="text-red-400 flex-shrink-0 text-[11px]">✗</span><span class="text-slate-400 text-[11px] leading-snug">${escapeHtml(m)}</span></div>`
             ).join('');
             const hasDetails = descHtml || mistakesHtml || e.video_url;
+            
             return `
                 <div class="bg-slate-800/60 rounded-xl border border-slate-700/40 mb-2 overflow-hidden">
                     <div class="p-3">
                         <div class="flex justify-between items-start">
                             <div class="flex-1 pr-2">
                                 <div class="flex items-center gap-1.5 flex-wrap">
-                                    <span class="font-bold text-white text-[13px]">${idx+1}. ${e.n}</span>
+                                    <span class="font-bold text-white text-[13px]">${idx + 1}. ${escapeHtml(e.n)}</span>
                                     ${e.bfr ? '<span class="text-[10px] text-red-400 font-bold bg-red-900/30 px-1.5 py-0.5 rounded">BFR</span>' : ''}
                                 </div>
-                                ${e.muscles ? `<p class="text-[10px] text-primary/70 mt-0.5 leading-snug">${e.muscles}</p>` : ''}
+                                ${e.muscles ? `<p class="text-[10px] text-primary/70 mt-0.5 leading-snug">${escapeHtml(e.muscles)}</p>` : ''}
                             </div>
                             <div class="text-right flex-shrink-0 ml-2">
                                 <span class="text-primary font-black text-sm">${e.sets}×${e.reps}</span>
                                 <span class="text-slate-500 text-[10px] block">${e.t}s rest</span>
                             </div>
                         </div>
-                        ${e.c && e.c.length ? `<div class="flex flex-wrap gap-1 mt-2">${e.c.map(c => `<span class="text-[10px] text-slate-400 bg-slate-700/50 px-2 py-0.5 rounded-full">${c}</span>`).join('')}</div>` : ''}
+                        ${e.c && e.c.length ? `<div class="flex flex-wrap gap-1 mt-2">${e.c.map(c => `<span class="text-[10px] text-slate-400 bg-slate-700/50 px-2 py-0.5 rounded-full">${escapeHtml(c)}</span>`).join('')}</div>` : ''}
                         ${hasDetails ? `<button onclick="toggleEx('${cid}')" id="${cid}-btn" class="mt-2 text-[11px] text-primary/80 font-bold flex items-center gap-1 hover:text-primary transition-colors">▼ Ver execução</button>` : ''}
                     </div>
                     ${hasDetails ? `<div id="${cid}" class="hidden border-t border-slate-700/40 p-3 bg-slate-900/60">
                         ${descHtml ? `<p class="text-[10px] text-slate-500 font-bold uppercase mb-2 tracking-wide">Como executar</p>${descHtml}` : ''}
                         ${mistakesHtml ? `<p class="text-[10px] text-red-500/70 font-bold uppercase mb-2 mt-3 tracking-wide">Erros comuns</p>${mistakesHtml}` : ''}
-                        ${e.video_url ? `<a href="${e.video_url}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-red-600/20 border border-red-500/30 text-red-400 text-xs font-bold px-3 py-2.5 rounded-xl w-full mt-3 hover:bg-red-600/30 transition-colors">▶ Ver no YouTube</a>` : ''}
+                        ${e.video_url ? `<a href="${e.video_url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-red-600/20 border border-red-500/30 text-red-400 text-xs font-bold px-3 py-2.5 rounded-xl w-full mt-3 hover:bg-red-600/30 transition-colors">▶ Ver no YouTube</a>` : ''}
                     </div>` : ''}
                 </div>`;
         }
@@ -981,23 +1383,24 @@
             const hidden = el.classList.toggle('hidden');
             if (btn) btn.textContent = hidden ? '▼ Ver execução' : '▲ Fechar';
         }
-        // ─────────────────────────────────────────────────────────────
 
         function renderWorkoutInChat(w) {
             w.id = w.id || crypto.randomUUID();
             const c = document.getElementById('chat-messages');
-            const d = document.createElement('div'); d.className = 'chat-msg chat-ai p-0 overflow-hidden w-full max-w-[100%]';
+            const d = document.createElement('div');
+            d.className = 'chat-msg chat-ai p-0 overflow-hidden w-full max-w-[100%]';
             const exHtml = (w.exercises || []).map((e, i) => buildExerciseCard(e, i)).join('');
             d.innerHTML = `
                 <div class="bg-slate-900 p-4 border-b border-primary/20">
-                    <h4 class="font-black text-white text-[15px]">${w.name}</h4>
-                    <span class="text-xs text-slate-400">${(w.exercises||[]).length} exercícios</span>
+                    <h4 class="font-black text-white text-[15px]">${escapeHtml(w.name)}</h4>
+                    <span class="text-xs text-slate-400">${(w.exercises || []).length} exercícios</span>
                 </div>
                 <div class="p-3 bg-[#0f172a]">${exHtml}</div>
                 <button onclick="saveAndConfirmChat(this, '${encodeURIComponent(JSON.stringify(w))}')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white p-4 font-black uppercase text-xs">
                     ✅ Registrar este Protocolo
                 </button>`;
-            c.appendChild(d); c.scrollTop = c.scrollHeight;
+            c.appendChild(d);
+            c.scrollTop = c.scrollHeight;
         }
 
         function renderProgramInChat(prog, isUpdate) {
@@ -1010,8 +1413,8 @@
                     <div class="flex items-center gap-3 p-3 bg-slate-800/60">
                         <div class="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
                         <div>
-                            <span class="font-bold text-white text-[13px]">${day.day}</span>
-                            <span class="text-slate-400 text-[11px] ml-2">${day.focus}</span>
+                            <span class="font-bold text-white text-[13px]">${escapeHtml(day.day)}</span>
+                            <span class="text-slate-400 text-[11px] ml-2">${escapeHtml(day.focus)}</span>
                         </div>
                         <span class="ml-auto text-[10px] text-slate-500 font-medium">${day.exercises.length} ex.</span>
                     </div>
@@ -1022,10 +1425,10 @@
                     <div class="flex items-center gap-2 mb-1">
                         <span class="text-primary text-xs font-bold uppercase tracking-widest">${isUpdate ? '♻️ Programa Atualizado' : '🗓️ Programa Semanal'}</span>
                     </div>
-                    <h4 class="font-black text-white text-[15px]">${prog.name}</h4>
+                    <h4 class="font-black text-white text-[15px]">${escapeHtml(prog.name)}</h4>
                 </div>
                 <div class="bg-[#0f172a]">${daysHtml}</div>
-                ${prog.notes && prog.notes.length ? `<div class="p-3 bg-slate-900/50 border-t border-slate-700/50">${prog.notes.map(n => `<p class="text-[11px] text-slate-400 mb-1">• ${n}</p>`).join('')}</div>` : ''}
+                ${prog.notes && prog.notes.length ? `<div class="p-3 bg-slate-900/50 border-t border-slate-700/50">${prog.notes.map(n => `<p class="text-[11px] text-slate-400 mb-1">• ${escapeHtml(n)}</p>`).join('')}</div>` : ''}
                 <button onclick="showPage('programa', null)" class="w-full bg-primary hover:bg-blue-500 text-white p-4 font-black uppercase text-xs transition-colors">
                     📋 Ver Programa Completo
                 </button>`;
@@ -1035,13 +1438,26 @@
 
         async function saveAndConfirmChat(btn, workoutStr) {
             const data = JSON.parse(decodeURIComponent(workoutStr));
-            const newRecord = { id: crypto.randomUUID(), workout_data: data, completed: false, created_at: new Date().toISOString() };
+            const newRecord = {
+                id: crypto.randomUUID(),
+                workout_data: data,
+                completed: false,
+                created_at: new Date().toISOString()
+            };
 
-            const res = await sb.from('workout_history').insert({ user_id: user.id, workout_data: data, created_at: new Date().toISOString() }).select().single();
-            workouts.unshift(res.data ? res.data : newRecord);
-
-            btn.outerHTML = '<div class="bg-emerald-900/50 text-emerald-400 p-3 text-center text-xs font-bold uppercase tracking-wider">Salvo na Nuvem ✅</div>';
-            renderHistory();
+            try {
+                const res = await sb.from('workout_history').insert({
+                    user_id: user.id,
+                    workout_data: data,
+                    created_at: new Date().toISOString()
+                }).select().single();
+                workouts.unshift(res.data ? res.data : newRecord);
+                btn.outerHTML = '<div class="bg-emerald-900/50 text-emerald-400 p-3 text-center text-xs font-bold uppercase tracking-wider">Salvo na Nuvem ✅</div>';
+                showToast('Treino salvo com sucesso!', 'success');
+                renderHistory();
+            } catch (e) {
+                showToast('Erro ao salvar treino', 'error');
+            }
         }
 
         function showWorkoutDetail(id) {
@@ -1050,7 +1466,7 @@
             const exHtml = (d.exercises || []).map((e, i) => buildExerciseCard(e, i)).join('');
             const content = `
                 <div class="pb-4">
-                    <p class="text-xs text-slate-500 mb-3">${(d.exercises||[]).length} exercícios${d.duration ? ' · ' + d.duration + 'min' : ''}</p>
+                    <p class="text-xs text-slate-500 mb-3">${(d.exercises || []).length} exercícios${d.duration ? ' · ' + d.duration + 'min' : ''}</p>
                     ${exHtml}
                     ${!w.completed
                         ? `<button onclick="confirmWorkoutCompletion('${id}')" class="w-full bg-emerald-600 text-white hover:bg-emerald-500 py-4 mt-4 rounded-2xl font-black uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(5,150,105,0.4)]">✅ Marcar Concluído</button>`
@@ -1060,40 +1476,44 @@
         }
 
         async function confirmWorkoutCompletion(id) {
-            const w = workouts.find(x => x.id === id); w.completed = true;
-            await sb.from('workout_history').update({ completed: true, completed_at: new Date().toISOString() }).eq('id', id);
-            closeModal(); renderHistory(); renderHome();
+            const w = workouts.find(x => x.id === id);
+            w.completed = true;
+            await sb.from('workout_history').update({
+                completed: true,
+                completed_at: new Date().toISOString()
+            }).eq('id', id);
+            closeModal();
+            renderHistory();
+            renderHome();
+            showToast('Treino marcado como concluído!', 'success');
         }
 
         function showCheckinModal(dayKey) {
             const content = `
                 <div class="space-y-5 pb-2">
-                    <p class="text-sm text-slate-400 -mt-1">Registre como foi o treino de <strong class="text-white">${dayKey}</strong></p>
+                    <p class="text-sm text-slate-400 -mt-1">Registre como foi o treino de <strong class="text-white">${escapeHtml(dayKey)}</strong></p>
 
                     <div>
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block">Fadiga Percebida: <span id="fatigue-val" class="text-primary">5</span>/10</label>
-                        <input type="range" id="ci-fatigue" min="1" max="10" value="5" oninput="document.getElementById('fatigue-val').textContent=this.value"
-                            style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block" for="ci-fatigue">Fadiga Percebida: <span id="fatigue-val" class="text-primary">5</span>/10</label>
+                        <input type="range" id="ci-fatigue" min="1" max="10" value="5" oninput="document.getElementById('fatigue-val').textContent=this.value" style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
                     </div>
 
                     <div>
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block">RPE — Esforço: <span id="rpe-val" class="text-accent">5</span>/10</label>
-                        <input type="range" id="ci-rpe" min="1" max="10" value="5" oninput="document.getElementById('rpe-val').textContent=this.value"
-                            style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-2 block" for="ci-rpe">RPE — Esforço: <span id="rpe-val" class="text-accent">5</span>/10</label>
+                        <input type="range" id="ci-rpe" min="1" max="10" value="5" oninput="document.getElementById('rpe-val').textContent=this.value" style="background: rgba(30,41,59,0.6) !important; padding: 8px 4px !important; border-radius: 8px !important; cursor: pointer;">
                     </div>
 
                     <div>
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block">Peso Atual (kg)</label>
-                        <input type="number" id="ci-weight" placeholder="Ex: 88.5" value="${profile.weight || ''}">
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block" for="ci-weight">Peso Atual (kg)</label>
+                        <input type="number" id="ci-weight" placeholder="Ex: 88.5" value="${profile.weight || ''}" min="30" max="300" step="0.1">
                     </div>
 
                     <div>
-                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block">Observações</label>
-                        <textarea id="ci-notes" placeholder="Como foi o treino? Alguma dor ou superação?" rows="3"
-                            style="background: rgba(30,41,59,0.6) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 14px !important; padding: 14px 18px !important; color: white !important; width: 100%; box-sizing: border-box; font-size: 15px !important; resize: none; outline: none; font-family: inherit;"></textarea>
+                        <label class="text-xs text-slate-400 font-bold uppercase ml-1 mb-1 block" for="ci-notes">Observações</label>
+                        <textarea id="ci-notes" placeholder="Como foi o treino? Alguma dor ou superação?" rows="3" style="background: rgba(30,41,59,0.6) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 14px !important; padding: 14px 18px !important; color: white !important; width: 100%; box-sizing: border-box; font-size: 15px !important; resize: none; outline: none; font-family: inherit;"></textarea>
                     </div>
 
-                    <button onclick="saveCheckin('${dayKey.replace(/'/g, '')}')" class="w-full bg-gradient-to-r from-primary to-accent py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-lg mt-2">
+                    <button onclick="saveCheckin('${escapeHtml(dayKey.replace(/'/g, "\\'"))}')" class="w-full bg-gradient-to-r from-primary to-accent py-4 rounded-2xl font-black uppercase tracking-wider text-sm shadow-lg mt-2">
                         Salvar Check-in
                     </button>
                 </div>`;
@@ -1114,25 +1534,71 @@
                     fatigue, rpe, weight, notes
                 });
                 if (error) throw error;
-                recentCheckins.unshift({ day_key: dayKey, fatigue, rpe, weight, notes, created_at: new Date().toISOString() });
+                
+                recentCheckins.unshift({
+                    day_key: dayKey,
+                    fatigue, rpe, weight, notes,
+                    created_at: new Date().toISOString()
+                });
                 closeModal();
                 renderHome();
                 renderProgram();
+                showToast('Check-in registrado!', 'success');
                 setTimeout(() => addChatMsg('ai', 'Check-in registrado! Obrigado pelo feedback — usarei esses dados para ajustar seu programa conforme necessário. 💪'), 300);
             } catch (e) {
-                alert('Erro ao salvar check-in: ' + e.message);
+                showToast('Erro ao salvar check-in: ' + e.message, 'error');
             }
         }
 
+        // ================================================================
+        // MODAL SYSTEM
+        // ================================================================
         const modalEl = document.getElementById('modal');
         const modalWrapper = document.getElementById('modal-content-wrapper');
 
         function openModal(t, html) {
-            document.getElementById('modal-title').textContent = t; document.getElementById('modal-body').innerHTML = html;
-            modalEl.classList.remove('hidden'); setTimeout(() => { modalEl.classList.remove('opacity-0'); modalWrapper.classList.remove('translate-y-full'); }, 10);
+            document.getElementById('modal-title').textContent = t;
+            document.getElementById('modal-body').innerHTML = html;
+            modalEl.classList.remove('hidden');
+            modalEl.classList.remove('hidden');
+            modalEl.style.display = 'flex';
+            setTimeout(() => {
+                modalEl.classList.remove('opacity-0');
+                modalWrapper.classList.remove('translate-y-full');
+            }, 10);
         }
+
         function closeModal() {
-            modalEl.classList.add('opacity-0'); modalWrapper.classList.add('translate-y-full'); setTimeout(() => modalEl.classList.add('hidden'), 300);
+            modalEl.classList.add('opacity-0');
+            modalWrapper.classList.add('translate-y-full');
+            setTimeout(() => {
+                modalEl.classList.add('hidden');
+                modalEl.style.display = 'none';
+            }, 300);
+        }
+
+        // Close modal on backdrop click
+        modalEl.addEventListener('click', (e) => {
+            if (e.target === modalEl) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // ================================================================
+        // URL PARAMS (Deep Links)
+        // ================================================================
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageParam = urlParams.get('page');
+        if (pageParam) {
+            // Will be handled after auth
+            sessionStorage.setItem('redirectPage', pageParam);
         }
     </script>
 </body>

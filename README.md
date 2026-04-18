@@ -1,74 +1,60 @@
 # 🏋️ Vitalidade 40+ | IA Personal Trainer Premium
 
 ![Status](https://img.shields.io/badge/Status-Ativo-success)
-![License](https://img.shields.io/badge/License-MIT-blue)
 ![PWA](https://img.shields.io/badge/PWA-Ready-purple)
 
-**Personal Trainer virtual com Inteligência Artificial especializado em homens acima de 40 anos.**
+**Personal Trainer virtual com IA especializado em homens acima de 40 anos.**
 
 🔗 **Demo:** [vitalidade-app.vercel.app](https://vitalidade-app.vercel.app)
 
 ---
 
-## 📱 Preview
-
-| Tela Inicial | Chat IA | Programa |
-|:-------------:|:-------:|:--------:|
-| ![Home](https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&h=600&fit=crop) | ![Chat](https://images.unsplash.com/photo-1571019614242-c5c3dee35812?w=300&h=600&fit=crop) | ![Program](https://images.unsplash.com/photo-1534438327276-14e5300c3a5b?w=300&h=600&fit=crop) |
-
----
-
 ## 🚀 Funcionalidades
 
-### 🧠 IA Coach Integrado
-- Treinos personalizados via chat
-- Programas semanais de 5 dias
-- Análise de progresso com base em check-ins
-- Adaptação automática para lesões (método BFR)
-
-### 📊 Gerenciamento Completo
-- Perfil biométrico (idade, peso, objetivo)
-- Histórico de treinos
-- Check-ins com RPE e fadiga
-- Progressão visual
-
-### 🏃 Foco em 40+
-- Hipertrofia segura para meia-idade
-- Redução de gordura visceral (HIIT)
-- Método BFR para articulações
-- Base científica embasada
-
-### 📱 PWA (Progressive Web App)
-- Instalável no celular/desktop
-- Funciona offline (parcialmente)
-- Push notifications
-- Sincronização na nuvem
+- 🧠 **IA Coach** - Treinos personalizados via chat
+- 📊 **Programas de 5 dias** - Semanais com adaptação ao perfil
+- 📱 **PWA** - Instalável no celular, funciona offline
+- 💪 **Método BFR** - Para lesões articulares
+- 🔥 **HIIT** - Foco em gordura visceral
 
 ---
 
 ## 🛠️ Tecnologias
 
-| Camada | Tecnologia |
-|--------|------------|
-| **Frontend** | HTML5, CSS3, JavaScript Vanilla, Tailwind CSS |
-| **Backend** | Supabase (PostgreSQL, Auth) |
-| **IA** | Groq API (Llama 3.3 70B) |
-| **Hosting** | Vercel |
-| **PWA** | Service Worker, Web Manifest |
+- **Frontend:** HTML5, Tailwind CSS, JavaScript
+- **Backend:** Supabase (PostgreSQL + Auth)
+- **IA:** Groq API (Llama 3.3)
+- **Hosting:** Vercel
 
 ---
 
-## 📁 Estrutura do Projeto
-vitalidade-app/ ├── index.html # Aplicação principal (SPA) ├── manifest.json # Configuração PWA ├── sw.js # Service Worker ├── vercel.json # Configuração Vercel ├── api/ │ └── chat.js # Serverless function (IA) └── README.md # Documentação
+## 🔧 Configuração Rápida
 
+### Variáveis de Ambiente (Vercel)
+
+| Variável | Onde pegar |
+|----------|------------|
+| `SUPABASE_URL` | Supabase → Settings → API |
+| `SUPABASE_ANON_KEY` | Supabase → Settings → API |
+| `GROQ_API_KEY` | console.groq.com |
+
+### Deploy
+
+1. Fork este repositório
+2. Importe no Vercel
+3. Adicione as variáveis de ambiente
+4. Deploy! ✅
 
 ---
 
-## 🔧 Instalação
+## 📖 Base Científica
 
-### 1. Clone o repositório
-```bash
-git clone https://github.com/Taurinas83/vitalidade-app.git
-cd vitalidade-app
+Baseado em evidências sobre:
+- Sarcopenia e DAEM
+- Treinamento resistido para 40+
+- Método BFR (Blood Flow Restriction)
+- HIIT para gordura visceral
 
+---
 
+**Feito com ❤️ para homens que buscam vitalidade.**

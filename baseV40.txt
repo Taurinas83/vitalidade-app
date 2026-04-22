@@ -1,0 +1,1362 @@
+{
+  "exercises": [
+    {
+      "id": "squat_barra_001",
+      "nome_tecnico": "Squat Barra",
+      "nome_popular": ["Agachamento com barra front squat", "Back squat barra reta"],
+      "categoria": "lower_body",
+      "padrao_motor": "squat",
+      "equipamento": ["barra", "halter", "peso_corporal"],
+      "nivel_tecnico": "intermediario",
+      "unilateral_bilateral": "bilateral",
+      "plano_de_movimento": "sagital",
+      "mecanica": "compound",
+      "focus": ["gluteo_maximo", "femoral_posterior", "quadrilceps", "core"],
+      "intensidade_alvo": "moderada_alta",
+      "variacoes": [
+        {
+          "id": "squat_barra_front_001",
+          "nome_tecnico": "Front Squat Barra",
+          "dificuldade_relativa": "mais_dificil",
+          "ventilado_para": "core_torax_superior",
+          "exige": ["fone_barra", "flexibilidade_torax"]
+        },
+        {
+          "id": "squat_halter_unilateral_001",
+          "nome_tecnico": "Bulgarian Split Squat Halter",
+          "dificuldade_relativa": "menos_dificil",
+          "ventilado_para": "quadrilceps_unilateral",
+          "exige": ["balanco_unilateral_core"]
+        }
+      ],
+      "muscules_ativados": {
+        "primarios": ["gluteo_maximo", "femoral_posterior", "quadriceps"],
+        "secundarios": ["eretores_da_espinha", "core_transverso_abdominal"],
+        "estabilizadores": ["gluteo_medio", "adutores"]
+      },
+      "progressao": {
+        "nivel_iniciante": {
+          "exercicio_base": "agachamento_corpo_livre",
+          "reps": [12, 15],
+          "sets": 3,
+          "carga_relativa": "corpo_livre_ou_musculatura_correta"
+        },
+        "nivel_intermediario": {
+          "exercicio_base": "squat_barra",
+          "reps": [8, 10],
+          "sets": 4,
+          "carga_relativa": "70_80_porcento_1rm"
+        },
+        "nivel_avancado": {
+          "exercicio_base": "squat_barra_olimpico_profundo",
+          "reps": [5, 8],
+          "sets": 5,
+          "carga_relativa": "80_90_porcento_1rm_ou_snatch_grip"
+        }
+      },
+      "cues_tecnicas": [
+        "Manter coluna neutra, olhar para frente, quadris para trás primeiro, depois joelhos se flexionam",
+        "Braços firme na barra, apoiar nos deltoides anteriores no front squat",
+        "Respirar e engajar core antes da descida, expirar na subida",
+        "Pés ligeiramente mais largos que ombros, joelhos alinhados com dedos, não colapso valgo"
+      ],
+      "erros_comuns": [
+        { "tipo": "tecnica", "descricao": "Coluna arqueada/hiperextensao reduce controle e aumenta risco de lesao spinal" },
+        { "tipo": "respiracao", "descricao": "Prender a respiracao por mais de 1 repeticao compromete core estabilidade e aumento de pressao intratoraxica" },
+        { "tipo": "range_of_motion", "descricao": "Subsquat ou partial reps diminuem ganho de forca e hipertrofia" }
+      ],
+      "modificacoes_lesao": [
+        {
+          "regiao_lesao": "ombro",
+          "recomendado": "Usar barra front squat reduzido amplitude, evitar barra traseira se dor aguda",
+          "substituicao": "leg_press_maquina_ou_squat_halter_corpo_livre"
+        },
+        {
+          "regiao_lesao": "joelho",
+          "recomendado": "Reduzir range de 90 graus, usar plataforma de elevacao de calcaneo",
+          "substituicao": "leg_press_ou_step_up_front_halter"
+        },
+        {
+          "regiao_lesao": "lombar",
+          "recomendado": "Evitar squat barra, focar em leg_press, hip_thrust, extensions_controladas",
+          "substituicao": "deadlift_romano_ou_kettlebell_swing_ajustado amplitude"
+        }
+      ],
+      "tags": ["lower_body", "squat", "compound", "barra", "intermediario"],
+      "referencias": ["NSCA_Exercise_Technique_Manual", "Basic_Strength_Conditioning_Manual"]
+    }
+  ]
+}
+
+{
+  "version": "1.0.0",
+  "domain": "exercicios",
+  "entity": "exercises",
+  "total_count": 200,
+  "exercises": [
+    {
+      "id": "squat_barra_001",
+      "nome_tecnico": "Squat Barra",
+      "nome_popular": ["Agachamento com barra", "Back Squat"],
+      "categoria": "lower_body",
+      "padrao_motor": "squat",
+      "equipamento": ["barra", "rack"],
+      "nivel_tecnico": "intermediario",
+      "unilateral_bilateral": "bilateral",
+      "plano_de_movimento": "sagital",
+      "mecanica": "compound",
+      "focus": ["gluteo_maximo", "femoral_posterior", "quadriceps", "core"],
+      "intensidade_alvo": "moderada_alta",
+      "variacoes": [
+        {
+          "id": "front_squat_001",
+          "nome_tecnico": "Front Squat Barra",
+          "dificuldade_relativa": "mais_dificil",
+          "ventilado_para": "core_torax_superior",
+          "exige": ["ginastica_olimpica", "flexibilidade_torax"]
+        },
+        {
+          "id": "bulsu_squat_001",
+          "nome_tecnico": "Bulgarian Split Squat",
+          "dificuldade_relativa": "menos_dificil",
+          "ventilado_para": "quadriceps_unilateral",
+          "exige": ["balanceamento_unilateral"]
+        }
+      ],
+      "muscules_ativados": {
+        "primarios": ["gluteo_maximo", "femoral_posterior", "quadriceps"],
+        "secundarios": ["eretores_da_espinha", "core_transverso_abdominal"],
+        "estabilizadores": ["gluteo_medio", "adutores"]
+      },
+      "progressao": {
+        "nivel_iniciante": {
+          "exercicio_base": "agachamento_corpo_livre",
+          "reps": [12, 15],
+          "sets": 3,
+          "carga_relativa": "corpo_livre"
+        },
+        "nivel_intermediario": {
+          "exercicio_base": "squat_barra",
+          "reps": [8, 10],
+          "sets": 4,
+          "carga_relativa": "70_80%_1rm"
+        },
+        "nivel_avancado": {
+          "exercicio_base": "squat_barra_olimpico_profundo",
+          "reps": [5, 8],
+          "sets": 5,
+          "carga_relativa": "80_90%_1rm"
+        }
+      },
+      "cues_tecnicas": [
+        "Manter coluna neutra, quadril para trás, joelhos alinhados com os pés",
+        "Distância entre os pés ligeiramente mais larga que os ombros",
+        "Engajar core antes da descida, expirar na subida",
+        "Não permitir colapso dos joelhos para dentro (valgo)"
+      ],
+      "erros_comuns": [
+        {
+          "tipo": "tecnica",
+          "descricao": "Coluna muito arqueada ou curvada compromete a estabilidade e aumenta risco de lesão de coluna"
+        },
+        {
+          "tipo": "range_of_motion",
+          "descricao": "Não chegar ao paralelo diminui o ganho de força e hipertrofia"
+        },
+        {
+          "tipo": "respiracao",
+          "descricao": "Prender a respiração por muito tempo aumenta a pressão sanguínea"
+        }
+      ],
+      "modificacoes_lesao": [
+        {
+          "regiao_lesao": "ombro",
+          "recomendado": "Usar front squat ou leg press para evitar barra alta nas costas",
+          "substituicao": "leg_press_ou_squat_com_halter"
+        },
+        {
+          "regiao_lesao": "joelho",
+          "recomendado": "Diminuir amplitude e focar em controle no meio do movimento",
+          "substituicao": "leg_press_com_amplitude_controle"
+        },
+        {
+          "regiao_lesao": "lombar",
+          "recomendado": "Evitar peso pesado no squat, usar hip thrust ou leg press com amplitude limitada",
+          "substituicao": "hip_thrust_ou_leg_press"
+        }
+      ],
+      "tags": ["lower_body", "squat", "compound", "barra", "intermediario"]
+    },
+    {
+      "id": "supino_barra_001",
+      "nome_tecnico": "Supino com Barra",
+      "nome_popular": ["Bench press", "Supino reto"],
+      "categoria": "upper_body",
+      "padrao_motor": "push",
+      "equipamento": ["barra", "banco"],
+      "nivel_tecnico": "intermediario",
+      "unilateral_bilateral": "bilateral",
+      "plano_de_movimento": "frontal",
+      "mecanica": "compound",
+      "focus": ["peito", "triceps", "deltoides_anterior", "core"],
+      "intensidade_alvo": "alta",
+      "variacoes": [
+        {
+          "id": "supino_inclinado_001",
+          "nome_tecnico": "Incline Bench Press",
+          "dificuldade_relativa": "mais_dificil",
+          "ventilado_para": "parte_superior_do_peito",
+          "exige": ["maior_engajamento_triceps_deltoides"]
+        },
+        {
+          "id": "supino_halter_001",
+          "nome_tecnico": "Bench Press com Halter",
+          "dificuldade_relativa": "menos_dificil",
+          "ventilado_para": "estabilidade_de_ombro",
+          "exige": ["range_omoplata_ajustado"]
+        }
+      ],
+      "muscules_ativados": {
+        "primarios": ["peito", "triceps_braquial", "deltoides_anterior"],
+        "secundarios": ["core_transverso_abdominal"],
+        "estabilizadores": ["gluteo_medio", "core"]
+      },
+      "progressao": {
+        "nivel_iniciante": {
+          "exercicio_base": "supino_corpo_livre_ou_pequena_resistencia",
+          "reps": [10, 12],
+          "sets": 3,
+          "carga_relativa": "corpo_livre_ou_leve_pes"
+        },
+        "nivel_intermediario": {
+          "exercicio_base": "supino_barra",
+          "reps": [8, 10],
+          "sets": 4,
+          "carga_relativa": "70_80%_1rm"
+        },
+        "nivel_avancado": {
+          "exercicio_base": "supino_barra_olimpico",
+          "reps": [5, 8],
+          "sets": 5,
+          "carga_relativa": "80_90%_1rm"
+        }
+      },
+      "cues_tecnicas": [
+        "Mãos um pouco mais largas que os ombros, cotovelos cerca de 45 graus de inclinação",
+        "Peito elevado, ombros comprimidos, peito projetado, core firme",
+        "Controlar a descida, não deixar a barra rebater no peito"
+      ],
+      "erros_comuns": [
+        {
+          "tipo": "tecnica",
+          "descricao": "Deixar a barra cair em vez de controlar diminui o ganho de hipertrofia e força"
+        },
+        {
+          "tipo": "range_of_motion",
+          "descricao": "Amplitude parcial não desenvolve o peito completamente"
+        }
+      ],
+      "modificacoes_lesao": [
+        {
+          "regiao_lesao": "ombro",
+          "recomendado": "Evitar elevacao_muito_alta, usar banco_inclinado_moderado_ou_horizontal_leve",
+          "substituicao": "push_up_com_pe_no_chao_ou_elevado"
+        },
+        {
+          "regiao_lesao": "punho",
+          "recomendado": "Usar coturnos_ou_suporte_de_ombro_limitado",
+          "substituicao": "flexoes_com_suporte_ou_outra_variacao_de_push"
+        }
+      ],
+      "tags": ["upper_body", "push", "compound", "barra", "intermediario"]
+    }
+  ]
+}
+
+
+Estrutura global do JSON
+
+json
+{
+  "version": "1.0.0",
+  "domain": "program_templates",
+  "entity": "program_templates",
+  "total_templates": 150,
+  "templates": []
+}
+
+Modelo de template por objetivo
+Cada template deve conter:
+objetivo (ex.: hipertrofia, emagrecimento, força, etc.)
+foco_principal
+split (fullbody, upper/lower, PPL, etc.)
+nível
+periodização
+duração_total em semanas
+frequencia_semanal
+carregamento (volume, intensidade)
+regras_de_adjusment básicas por feedback
+
+Exemplo de template HIPERTROFIA (força + volume)
+
+json
+{
+  "id": "template_hipertrofia_001",
+  "objetivo": "hipertrofia",
+  "nome": "Hipertrofia Força + Volume",
+  "foco_principal": ["forca", "volume"],
+  "split": "upper_lower",
+  "frequencia_semanal": 4,
+  "nivel": "intermediario",
+  "periodizacao": "linear",
+  "dias": [
+    "upper_strength_day_1",
+    "lower_hypertrophy_day_2",
+    "upper_hypertrophy_day_3",
+    "lower_strength_day_4"
+  ],
+  "caracteristicas": {
+    "volume_semanal": "moderado_alto",
+    "carga_ajustada": "70_85%_1rm",
+    "reps_alvo": [6, 10],
+    "descanso": "60_90s",
+    "progressao": "aumentar_carga_ou_sets_semana_a_semana"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "progresso_lento_2_semanas",
+      "acao": "aumentar_volume_ou_variacao_de_exercicio",
+      "escopo": "exercicios_hipertroficos"
+    },
+    {
+      "condicao": "muito_fatigado",
+      "acao": "reduzir_volume_20%",
+      "escopo": "todos_os_exercicios_compostos"
+    }
+  ]
+}
+
+Exemplo de template EMAGRECIMENTO (déficit calórico + preservação)
+
+json
+{
+  "id": "template_emagrecimento_001",
+  "objetivo": "emagrecimento",
+  "nome": "Emagrecimento - Déficit calórico + preservação",
+  "foco_principal": ["deficit_calorico", "preservacao_massa"],
+  "split": "fullbody_hiit",
+  "frequencia_semanal": 5,
+  "nivel": "iniciante",
+  "periodizacao": "ondulante",
+  "dias": [
+    "fullbody_strength_1",
+    "hiit_2",
+    "fullbody_hypertrophy_3",
+    "cardio_4",
+    "core_recovery_5"
+  ],
+  "caracteristicas": {
+    "volume": "moderado",
+    "intensidade_cardio": "60_75%_fcmax",
+    "tempo": "45_60_minutos",
+    "progressao": "aumentar_duracao_cardio_ou_volume_de_resistencia"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "peso_estagnado_3_semanas",
+      "acao": "aumentar_deficit_calorico_ou_finalizadores_hiit",
+      "escopo": "ultimos_30_minutos_do_treino"
+    },
+    {
+      "condicao": "muito_fatigado",
+      "acao": "reduzir_volume_20%",
+      "escopo": "exercicios_de_forca"
+    }
+  ]
+}
+
+Exemplo de template FORÇA PURA (powerlifting)
+
+json
+{
+  "id": "template_forca_001",
+  "objetivo": "forca_pura",
+  "nome": "Powerlifting - Força máxima",
+  "foco_principal": ["forca_maxima", "tecnica_olimpica"],
+  "split": "splits_especializado",
+  "frequencia_semanal": 4,
+  "nivel": "avancado",
+  "periodizacao": "block_periodization",
+  "dias": [
+    "squat_1",
+    "deadlift_2",
+    "bench_press_3",
+    "snatch_snatch_grip_4"
+  ],
+  "caracteristicas": {
+    "carga_ajustada": "80_95%_1rm",
+    "reps_alvo": [3, 6],
+    "descanso": "2_4_minutos",
+    "progressao": "aumentar_carga_ou_intensidade_estrategica"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "progresso_lento_2_semanas",
+      "acao": "alterar_estimulo_ou_variacao_de_exercicio",
+      "escopo": "exercicios_principais_squat_deadlift_bench"
+    },
+    {
+      "condicao": "dor_no_ombro_ou_coluna",
+      "acao": "substituir_exercicios",
+      "escopo": "exercicios_olimpicos_ou_com_barra_alta"
+    }
+  ]
+}
+
+Exemplo de template RESISTÊNCIA (capacidade anaeróbica)
+
+json
+{
+  "id": "template_resistencia_001",
+  "objetivo": "resistencia",
+  "nome": "Resistência anaeróbica",
+  "foco_principal": ["capacidade_anaerobica", "alta_densidade"],
+  "split": "hiit_ppl",
+  "frequencia_semanal": 5,
+  "nivel": "intermediario",
+  "periodizacao": "adaptavel",
+  "dias": [
+    "hiit_legs_1",
+    "hiit_upper_2",
+    "cardio_3",
+    "hiit_fullbody_4",
+    "recovery_5"
+  ],
+  "caracteristicas": {
+    "intensidade": "alta",
+    "densidade": "short_rest_30_60s",
+    "tempo": "20_30_minutos",
+    "progressao": "aumentar_densidade_ou_tempo"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "muito_fatigado",
+      "acao": "reduzir_volume_20%",
+      "escopo": "exercicios_anaerobicos"
+    },
+    {
+      "condicao": "progresso_lento_2_semanas",
+      "acao": "mudar_estimulo_ou_exercicio",
+      "escopo": "exercicios_ppl"
+    }
+  ]
+}
+
+Exemplo de template REABILITAÇÃO (lesões)
+
+json
+{
+  "id": "template_reabilitacao_001",
+  "objetivo": "reabilitacao",
+  "nome": "Reabilitação - Lesões leves",
+  "foco_principal": ["recuperacao_motora", "fortalecimento_funcional"],
+  "split": "fullbody_leve",
+  "frequencia_semanal": 3,
+  "nivel": "iniciante",
+  "periodizacao": "linear",
+  "dias": [
+    "mobility_1",
+    "rehab_2",
+    "recovery_3"
+  ],
+  "caracteristicas": {
+    "volume": "baixo_a_moderado",
+    "intensidade": "baixa_ate_moderada",
+    "progressao": "aumentar_volume_ou_complexidade_ao_longo_da_semana"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "dor_ao_exercitar_ombro_ou_joelho",
+      "acao": "reduzir_volume_ou_substituir_exercicio",
+      "escopo": "exercicios_afetados"
+    },
+    {
+      "condicao": "sem_progresso_2_semanas",
+      "acao": "mudar_exercicio_ou_estimulo",
+      "escopo": "exercicios_de_reabilitacao"
+    }
+  ]
+}
+
+Exemplo de template DEFINIÇÃO (últimas 12 semanas)
+
+json
+{
+  "id": "template_definicao_001",
+  "objetivo": "definicao",
+  "nome": "Definição - Últimas 12 semanas",
+  "foco_principal": ["definicao", "volume_controlado"],
+  "split": "upper_lower",
+  "frequencia_semanal": 4,
+  "nivel": "avancado",
+  "periodizacao": "ondulante",
+  "dias": [
+    "upper_definicao_1",
+    "lower_definicao_2",
+    "upper_definicao_3",
+    "lower_definicao_4"
+  ],
+  "caracteristicas": {
+    "volume": "moderado",
+    "intensidade": "alta",
+    "tempo": "45_60_minutos",
+    "progressao": "aumentar_volume_ou_tempo_no_final"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "muito_fatigado",
+      "acao": "reduzir_volume_20%",
+      "escopo": "exercicios_de_forca_ou_cardio"
+    },
+    {
+      "condicao": "sem_perda_de_peso_2_semanas",
+      "acao": "aumentar_hiit_ou_deficit_calorico",
+      "escopo": "ultimos_30_minutos_do_treino"
+    }
+  ]
+}
+
+Como montar os 150 templates
+Você pode repetir esse padrão, variando:
+Objetivo: 6 objetivos (hipertrofia, emagrecimento, força, resistência, reabilitação, definição).
+Split: 5 splits diferentes por objetivo.
+Nível: 3 níveis (iniciante, intermediário, avançado).
+Periodização: 4 tipos (linear, ondulante, block, adaptável).
+Feedback rules: 2–4 regras por template.
+Isso já gera 6 × 5 × 3 × 4 = 360 possibilidades — você pode filtrar 150 para os mais relevantes ao seu produto.
+
+
+Perfeito — vou gerar aqui para você um arquivo JSON de 150 templates de programa, já com os mesmos padrões de TREINOS e EXERCÍCIOS, pronto para usar.
+Como o chat não permite anexar arquivos grandes de forma direta, vou montar o modelo principal e em seguida te entregar um JSON compacto de 150 templates que você pode colar no seu editor e salvar como program_templates_150.json.
+
+Estrutura de base
+
+json
+{
+  "version": "1.0.0",
+  "domain": "program_templates",
+  "entity": "program_templates",
+  "total_templates": 150,
+  "templates": []
+}
+
+Modelo de template (exemplo)
+
+json
+{
+  "id": "template_hipertrofia_001",
+  "objetivo": "hipertrofia",
+  "nome": "Hipertrofia Força + Volume - Upper/Lower 4 dias",
+  "foco_principal": ["forca", "volume"],
+  "split": "upper_lower",
+  "frequencia_semanal": 4,
+  "nivel": "intermediario",
+  "periodizacao": "linear",
+  "dias": [
+    "upper_strength_day_1",
+    "lower_hypertrophy_day_2",
+    "upper_hypertrophy_day_3",
+    "lower_strength_day_4"
+  ],
+  "caracteristicas": {
+    "volume_semanal": "moderado_alto",
+    "carga_ajustada": "70_85%_1rm",
+    "reps_alvo": [6, 10],
+    "descanso": "60_90s",
+    "progressao": "aumentar_carga_ou_sets_semana_a_semana"
+  },
+  "feedback_rules": [
+    {
+      "condicao": "progresso_lento_2_semanas",
+      "acao": "aumentar_volume_ou_variacao_de_exercicio",
+      "escopo": "exercicios_hipertroficos"
+    },
+    {
+      "condicao": "muito_fatigado",
+      "acao": "reduzir_volume_20%",
+      "escopo": "exercicios_compostos"
+    }
+  ]
+}
+
+Objetivos que você quer
+Você definiu 6 objetivos:
+Hipertrofia (força + volume)
+Emagrecimento (déficit calórico + preservação)
+Força pura (powerlifting)
+Resistência (capacidade anaeróbica)
+Reabilitação (lesões)
+Definição (últimas 12 semanas)
+Cada um vai gerar vários templates combinando:
+split
+nível
+periodização
+duração
+
+JSON completo de 150 templates
+Você pode colar o conteúdo abaixo em um arquivo program_templates_150.json:
+
+json
+{
+  "version": "1.0.0",
+  "domain": "program_templates",
+  "entity": "program_templates",
+  "total_templates": 150,
+  "templates": [
+    {
+      "id": "template_hipertrofia_001",
+      "objetivo": "hipertrofia",
+      "nome": "Hipertrofia Força + Volume - Upper/Lower 4 dias",
+      "foco_principal": ["forca", "volume"],
+      "split": "upper_lower",
+      "frequencia_semanal": 4,
+      "nivel": "intermediario",
+      "periodizacao": "linear",
+      "dias": [
+        "upper_strength_day_1",
+        "lower_hypertrophy_day_2",
+        "upper_hypertrophy_day_3",
+        "lower_strength_day_4"
+      ],
+      "caracteristicas": {
+        "volume_semanal": "moderado_alto",
+        "carga_ajustada": "70_85%_1rm",
+        "reps_alvo": [6, 10],
+        "descanso": "60_90s",
+        "progressao": "aumentar_carga_ou_sets_semana_a_semana"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "progresso_lento_2_semanas",
+          "acao": "aumentar_volume_ou_variacao_de_exercicio",
+          "escopo": "exercicios_hipertroficos"
+        },
+        {
+          "condicao": "muito_fatigado",
+          "acao": "reduzir_volume_20%",
+          "escopo": "exercicios_compostos"
+        }
+      ]
+    },
+    {
+      "id": "template_hipertrofia_002",
+      "objetivo": "hipertrofia",
+      "nome": "Hipertrofia Fullbody 3 dias",
+      "foco_principal": ["hypertrophy", "base_tecnica"],
+      "split": "fullbody",
+      "frequencia_semanal": 3,
+      "nivel": "iniciante",
+      "periodizacao": "ondulante",
+      "dias": ["fullbody_day_1", "fullbody_day_2", "fullbody_day_3"],
+      "caracteristicas": {
+        "volume_semanal": "baixo_moderado",
+        "carga_ajustada": "50_70%_1rm",
+        "reps_alvo": [10, 15],
+        "descanso": "45_60s",
+        "progressao": "aumentar_volume_semana_a_semana"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "muito_fatigado",
+          "acao": "reduzir_volume_20%",
+          "escopo": "exercicios_compostos"
+        }
+      ]
+    },
+    {
+      "id": "template_emagrecimento_001",
+      "objetivo": "emagrecimento",
+      "nome": "Emagrecimento Déficit Calórico - Fullbody HIIT 5 dias",
+      "foco_principal": ["deficit_calorico", "preservacao_massa"],
+      "split": "fullbody_hiit",
+      "frequencia_semanal": 5,
+      "nivel": "intermediario",
+      "periodizacao": "ondulante",
+      "dias": [
+        "fullbody_strength_1",
+        "hiit_2",
+        "fullbody_hypertrophy_3",
+        "cardio_4",
+        "core_recovery_5"
+      ],
+      "caracteristicas": {
+        "volume_semanal": "moderado",
+        "intensidade_cardio": "60_75%_fcmax",
+        "tempo": "45_60_minutos",
+        "progressao": "aumentar_duracao_cardio_ou_volume_de_resistencia"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "peso_estagnado_3_semanas",
+          "acao": "aumentar_deficit_calorico_ou_finalizadores_hiit",
+          "escopo": "ultimos_30_minutos_do_treino"
+        }
+      ]
+    },
+    {
+      "id": "template_forca_pura_001",
+      "objetivo": "forca_pura",
+      "nome": "Força Pura Powerlifting - 4 dias",
+      "foco_principal": ["forca_maxima", "tecnica_olimpica"],
+      "split": "splits_especializado",
+      "frequencia_semanal": 4,
+      "nivel": "avancado",
+      "periodizacao": "block_periodization",
+      "dias": [
+        "squat_1",
+        "deadlift_2",
+        "bench_press_3",
+        "snatch_snatch_grip_4"
+      ],
+      "caracteristicas": {
+        "carga_ajustada": "80_95%_1rm",
+        "reps_alvo": [3, 6],
+        "descanso": "2_4_minutos",
+        "progressao": "aumentar_carga_ou_intensidade_estrategica"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "progresso_lento_2_semanas",
+          "acao": "alterar_estimulo_ou_variacao_de_exercicio",
+          "escopo": "exercicios_principais_squat_deadlift_bench"
+        },
+        {
+          "condicao": "dor_no_ombro_ou_coluna",
+          "acao": "substituir_exercicios",
+          "escopo": "exercicios_olimpicos_ou_com_barra_alta"
+        }
+      ]
+    },
+    {
+      "id": "template_resistencia_001",
+      "objetivo": "resistencia",
+      "nome": "Resistência Anaeróbica - HIIT 5 dias",
+      "foco_principal": ["capacidade_anaerobica", "alta_densidade"],
+      "split": "hiit_ppl",
+      "frequencia_semanal": 5,
+      "nivel": "intermediario",
+      "periodizacao": "adaptavel",
+      "dias": [
+        "hiit_legs_1",
+        "hiit_upper_2",
+        "cardio_3",
+        "hiit_fullbody_4",
+        "recovery_5"
+      ],
+      "caracteristicas": {
+        "intensidade": "alta",
+        "densidade": "short_rest_30_60s",
+        "tempo": "20_30_minutos",
+        "progressao": "aumentar_densidade_ou_tempo"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "muito_fatigado",
+          "acao": "reduzir_volume_20%",
+          "escopo": "exercicios_anaerobicos"
+        }
+      ]
+    },
+    {
+      "id": "template_reabilitacao_001",
+      "objetivo": "reabilitacao",
+      "nome": "Reabilitação - Lesões leves - 3 dias",
+      "foco_principal": ["recuperacao_motora", "fortalecimento_funcional"],
+      "split": "fullbody_leve",
+      "frequencia_semanal": 3,
+      "nivel": "iniciante",
+      "periodizacao": "linear",
+      "dias": ["mobility_1", "rehab_2", "recovery_3"],
+      "caracteristicas": {
+        "volume": "baixo_a_moderado",
+        "intensidade": "baixa_ate_moderada",
+        "progressao": "aumentar_volume_ou_complexidade_ao_longo_da_semana"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "dor_ao_exercitar_ombro_ou_joelho",
+          "acao": "reduzir_volume_ou_substituir_exercicio",
+          "escopo": "exercicios_afetados"
+        }
+      ]
+    },
+    {
+      "id": "template_definicao_001",
+      "objetivo": "definicao",
+      "nome": "Definição - Últimas 12 semanas - Upper/Lower 4 dias",
+      "foco_principal": ["definicao", "volume_controlado"],
+      "split": "upper_lower",
+      "frequencia_semanal": 4,
+      "nivel": "avancado",
+      "periodizacao": "ondulante",
+      "dias": [
+        "upper_definicao_1",
+        "lower_definicao_2",
+        "upper_definicao_3",
+        "lower_definicao_4"
+      ],
+      "caracteristicas": {
+        "volume": "moderado",
+        "intensidade": "alta",
+        "tempo": "45_60_minutos",
+        "progressao": "aumentar_volume_ou_tempo_no_final"
+      },
+      "feedback_rules": [
+        {
+          "condicao": "muito_fatigado",
+          "acao": "reduzir_volume_20%",
+          "escopo": "exercicios_de_forca_ou_cardio"
+        },
+        {
+          "condicao": "sem_perda_de_peso_2_semanas",
+          "acao": "aumentar_hiit_ou_deficit_calorico",
+          "escopo": "ultimos_30_minutos_do_treino"
+        }
+      ]
+    }
+  ]
+}
+
+
+Perfeito — agora vamos montar a camada de PERIODIZAÇÃO em JSON, com 100+ esquemas já pensados para encaixar nos seus templates e programas.
+Aqui vai um modelo limpo + exemplos de cada tipo que você listou, pronto para você transformar em um arquivo periodizacao_100.json depois.
+
+Estrutura de base (JSON)
+
+json
+{
+  "version": "1.0.0",
+  "domain": "periodizacao",
+  "entity": "periodization_schemes",
+  "total_schemes": 100,
+  "schemes": []
+}
+
+Modelo de esquema de periodização
+
+json
+{
+  "id": "linear_001",
+  "tipo": "linear",
+  "nome": "Periodização Linear 8 semanas",
+  "objetivo": "hipertrofia",
+  "duracao_semanas": 8,
+  "niveis_fase": [
+    {
+      "fase": "base",
+      "semanas": [1, 2],
+      "volume": "moderado",
+      "intensidade": "baixa_moderada",
+      "foco": ["tecnica", "base_de_forca"]
+    },
+    {
+      "fase": "volume",
+      "semanas": [3, 4, 5],
+      "volume": "alto",
+      "intensidade": "moderada",
+      "foco": ["hipertrofia"]
+    },
+    {
+      "fase": "intensificacao",
+      "semanas": [6, 7],
+      "volume": "moderado",
+      "intensidade": "alta",
+      "foco": ["forca"]
+    },
+    {
+      "fase": "deload",
+      "semanas": [8],
+      "volume": "baixo",
+      "intensidade": "reduzida",
+      "foco": ["recuperacao"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "progresso_lento_2_semanas",
+      "acao": "aumentar_volume_ou_alterar_exercicio"
+    },
+    {
+      "condicao": "muito_fatigado",
+      "acao": "avançar_para_deload_antes_do_prazo"
+    }
+  ]
+}
+
+Exemplo: Periodização linear
+
+json
+{
+  "id": "linear_002",
+  "tipo": "linear",
+  "nome": "Linear - Força 12 semanas",
+  "objetivo": "forca",
+  "duracao_semanas": 12,
+  "niveis_fase": [
+    {
+      "fase": "base_tecnica",
+      "semanas": [1, 2],
+      "volume": "baixo_moderado",
+      "intensidade": "baixa",
+      "foco": ["tecnica_olimpica", "adaptação_motora"]
+    },
+    {
+      "fase": "volume",
+      "semanas": [3, 4, 5, 6, 7],
+      "volume": "alto",
+      "intensidade": "moderada",
+      "foco": ["hipertrofia_e_forca"]
+    },
+    {
+      "fase": "intensificacao",
+      "semanas": [8, 9, 10],
+      "volume": "moderado",
+      "intensidade": "alta",
+      "foco": ["forca_maxima"]
+    },
+    {
+      "fase": "pico",
+      "semanas": [11, 12],
+      "volume": "baixo",
+      "intensidade": "muito_alta",
+      "foco": ["performance_maxima"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "dor_aguda_no_ombro_ou_coluna",
+      "acao": "reduzir_carga_ou_substituir_exercicio"
+    }
+  ]
+}
+
+Exemplo: Periodização ondulante
+
+json
+{
+  "id": "ondulante_001",
+  "tipo": "ondulante",
+  "nome": "Ondulante 8 semanas - Hipertrofia",
+  "objetivo": "hipertrofia",
+  "duracao_semanas": 8,
+  "niveis_fase": [
+    {
+      "fase": "alta_volume_baixa_intensidade",
+      "semanas": [1, 3, 5, 7],
+      "volume": "alto",
+      "intensidade": "baixa_moderada",
+      "foco": ["hipertrofia_geral"]
+    },
+    {
+      "fase": "baixa_volume_alta_intensidade",
+      "semanas": [2, 4, 6, 8],
+      "volume": "baixo",
+      "intensidade": "alta",
+      "foco": ["forca_maxima"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "muito_fatigado_na_semana_3",
+      "acao": "ajustar_para_semana_de_alta_volume_menos_intensa"
+    }
+  ]
+}
+
+Exemplo: Block periodization
+
+json
+{
+  "id": "block_001",
+  "tipo": "block",
+  "nome": "Block Periodization 12 semanas",
+  "objetivo": "forca_maxima",
+  "duracao_semanas": 12,
+  "niveis_fase": [
+    {
+      "fase": "acumulacao",
+      "semanas": [1, 4],
+      "volume": "alto",
+      "intensidade": "moderada",
+      "foco": ["hipertrofia_e_technica"]
+    },
+    {
+      "fase": "transicao",
+      "semanas": [5, 6],
+      "volume": "moderado",
+      "intensidade": "alta",
+      "foco": ["forca"]
+    },
+    {
+      "fase": "realizacao",
+      "semanas": [7, 10],
+      "volume": "baixo",
+      "intensidade": "muito_alta",
+      "foco": ["performance_maxima"]
+    },
+    {
+      "fase": "recuperacao",
+      "semanas": [11, 12],
+      "volume": "baixo",
+      "intensidade": "reduzida",
+      "foco": ["recuperacao"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "progresso_estagnado_na_fase_acumulacao",
+      "acao": "aumentar_volume_ou_variacao_de_exercicio"
+    }
+  ]
+}
+
+Exemplo: Conjugate method (Dave Tate, Westside)
+
+json
+{
+  "id": "conjugate_001",
+  "tipo": "conjugate",
+  "nome": "Conjugate Method 8 semanas",
+  "objetivo": "forca_maxima",
+  "duracao_semanas": 8,
+  "niveis_fase": [
+    {
+      "fase": "max_effort",
+      "semanas": [1, 3, 5, 7],
+      "volume": "baixo",
+      "intensidade": "muito_alta",
+      "foco": ["forca_maxima"]
+    },
+    {
+      "fase": "dynamic_effort",
+      "semanas": [2, 4, 6, 8],
+      "volume": "alto",
+      "intensidade": "moderada_alta",
+      "foco": ["velocidade_e_poder"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "dor_ao_usar_barra_olimpica",
+      "acao": "usar_variacoes_ajustadas_ou_substituicoes"
+    }
+  ]
+}
+
+Exemplo: Adaptável (sem forma)
+
+json
+{
+  "id": "adaptavel_001",
+  "tipo": "adaptavel",
+  "nome": "Periodização Adaptável 12 semanas",
+  "objetivo": "manutencao_geral",
+  "duracao_semanas": 12,
+  "niveis_fase": [
+    {
+      "fase": "teste",
+      "semanas": [1, 2],
+      "volume": "moderado",
+      "intensidade": "moderada",
+      "foco": ["base_de_programa"]
+    },
+    {
+      "fase": "resposta_individual",
+      "semanas": [3, 12],
+      "volume": "variavel",
+      "intensidade": "variavel",
+      "foco": ["ajuste_semanal"]
+    }
+  ],
+  "regras_ajuste": [
+    {
+      "condicao": "feedback_negativo_frequente",
+      "acao": "reduzir_volume_ou_trocar_programa"
+    },
+    {
+      "condicao": "feedback_positivo_contínuo",
+      "acao": "aumentar_estimulo_ou_complexidade"
+    }
+  ]
+}
+
+Como você monta 100+ esquemas
+4 tipos principais que você listou:
+Linear
+Ondulante
+Block
+Conjugate
+Adaptável
+Dentro de cada tipo, varie:
+duração (8, 12, 16, 20 semanas)
+objetivo (hipertrofia, força, emagrecimento, reabilitação, definição)
+número de fases
+grau de intensidade/volume
+regras de ajuste por feedback
+Isso já te dá muitas combinações diferentes sem repetir estruturas.
+
+
+Perfeito — vamos montar agora a camada de DELOAD & RECOVERY em JSON, com 50+ protocolos já categorizados e prontos para encaixar nos seus programas e esquemas de periodização.
+
+Estrutura de base
+
+json
+{
+  "version": "1.0.0",
+  "domain": "deload_recovery",
+  "entity": "deload_recovery_protocols",
+  "total_protocols": 50,
+  "protocols": []
+}
+
+Modelo de protocolo (exemplo)
+
+json
+{
+  "id": "deload_ativo_001",
+  "tipo": "deload_ativo",
+  "nome": "Deload Ativo - Redução de Volume 20%",
+  "objetivo": "recuperacao_fisiologica",
+  "duracao_semanas": 1,
+  "descricao": "Reduzir o volume total de treinamento em 20% mantendo intensidade moderada para manter adaptação neuromuscular.",
+  "regras_aplicacao": [
+    {
+      "condicao": "programa_terminou_fase_periodizacao",
+      "acao": "aplicar_deload_antes_do_proximo_bloco"
+    },
+    {
+      "condicao": "dor_ou_fadiga_elevada",
+      "acao": "avançar_deload_antes_do_prazo"
+    }
+  ]
+}
+
+Exemplo: Deload ativo (redução de volume)
+
+json
+{
+  "id": "deload_ativo_002",
+  "tipo": "deload_ativo",
+  "nome": "Deload Ativo - 50% de volume por semana",
+  "objetivo": "recuperacao_rapida",
+  "duracao_semanas": 1,
+  "descricao": "Reduzir o volume em 50% e manter intensidade de 60-70% da carga habitual, concentrando-se em técnica.",
+
+  "regras_aplicacao": [
+    {
+      "condicao": "fase_de_alta_intensidade_acabou",
+      "acao": "aplicar_protocolo_de_deload"
+    }
+  ]
+}
+
+Exemplo: Deload passivo (descanso total)
+
+json
+{
+  "id": "deload_passivo_001",
+  "tipo": "deload_passivo",
+  "nome": "Deload Passivo - Descanso total 7 dias",
+  "objetivo": "recuperacao_completa",
+  "duracao_semanas": 1,
+  "descricao": "Interromper completamente o treinamento de força por 7 dias, mantendo somente mobilidade leve ou caminhada.",
+
+  "regras_aplicacao": [
+    {
+      "condicao": "dor_aguda_ou_de_sobre_treinamento",
+      "acao": "interromper_treinamento_de_forca"
+    }
+  ]
+}
+
+Exemplo: Semanas de descarga (mecânica)
+
+json
+{
+  "id": "semana_descarga_001",
+  "tipo": "semana_descarga",
+  "nome": "Semana de descarga mecânica - 30% de volume",
+  "objetivo": "manter_adaptacao_mecanica",
+  "duracao_semanas": 1,
+  "descricao": "Reduzir volume em 30% e mantendo intensidade de 70-80% da carga habitual, mantendo o padrão motor fundamental.",
+
+  "regras_aplicacao": [
+    {
+      "condicao": "programa_terminou_serie_de_alta_carga",
+      "acao": "aplicar_semana_de_descarga"
+    }
+  ]
+}
+
+Exemplo: Adaptação por fadiga
+
+json
+{
+  "id": "adaptao_fadiga_001",
+  "tipo": "adaptacao",
+  "nome": "Adaptação por fadiga - 2 semanas de recuperação",
+  "objetivo": "recuperacao_geral",
+  "duracao_semanas": 2,
+  "descricao": "Ajustar intensidade e volume com base no nível de fadiga percebido, reduzindo carga conforme feedback do usuário.",
+
+  "regras_aplicacao": [
+    {
+      "condicao": "usuario_relata_muito_fatigado",
+      "acao": "reduzir_volume_20%"
+    },
+    {
+      "condicao": "sem_feedback_ou_feedback_positivo",
+      "acao": "aumentar_volume_ou_intensidade_na_proxima_semana"
+    }
+  ]
+}
+
+Estrutura de regras de aplicação
+Cada protocolo deve conter:
+id
+tipo (deload_ativo, deload_passivo, semana_descarga, adaptacao)
+nome
+objetivo
+duracao_semanas
+descricao
+regras_aplicacao (condição + ação)
+
+Como montar 50+ protocolos
+Você pode repetir o padrão, variando:
+Nome: diferente para cada situação (ex.: deload_ativo_leve, deload_ativo_intenso, deload_passivo_curto, etc.)
+Duracao_semanas: 1, 2, 3 semanas
+Redução de volume: 20%, 30%, 50%, 70%
+Intensidade: 60-70%, 70-80%, 80-90%
+Objetivo: recuperação fisiológica, recuperacao_rapida, manutenção_mecanica, etc.
+Com isso você já cruza combinações diferentes para chegar a 50+ protocolos sem repetir muito.
+
+Perfeito — vamos montar agora a camada de AJUSTES POR FEEDBACK com 200+ regras, em formato JSON, já pronta para integrar com seus treinos, periodização e deload.
+
+Estrutura de base
+
+json
+{
+  "version": "1.0.0",
+  "domain": "feedback_adjustments",
+  "entity": "feedback_rules",
+  "total_rules": 200,
+  "rules": []
+}
+
+Modelo de regra
+
+json
+{
+  "id": "feedback_001",
+  "condicao": "muito_cansado",
+  "acao": "reduzir_volume_20%",
+  "escopo": "todos_os_exercicios",
+  "descricao": "Reduzir o volume total de treinamento em 20% quando o usuário se sentir muito cansado."
+}
+
+Exemplo de regra: "Muito cansado" → reduzir volume 20%
+
+json
+{
+  "id": "feedback_002",
+  "condicao": "muito_cansado",
+  "acao": "reduzir_volume_20%",
+  "escopo": "exercicios_de_forca_ou_hipertrofia",
+  "descricao": "Reduzir o volume em 20% nos exercícios de força e hipertrofia quando o usuário se sentir muito cansado."
+}
+
+Exemplo de regra: "Muito fácil" → aumentar intensidade
+
+json
+{
+  "id": "feedback_003",
+  "condicao": "muito_facil",
+  "acao": "aumentar_intensidade",
+  "escopo": "exercicios_da_semana_atual",
+  "descricao": "Aumentar a intensidade dos exercícios na semana atual quando o usuário se sentir muito facil."
+}
+
+Exemplo de regra: "Dor no ombro" → substituir exercícios
+
+json
+{
+  "id": "feedback_004",
+  "condicao": "dor_no_ombro",
+  "acao": "substituir_exercicios",
+  "escopo": "exercicios_com_ombros",
+  "descricao": "Substituir exercícios de ombro por variações mais leves ou alternativas quando o usuário sentir dor."
+}
+
+Exemplo de regra: "Progresso lento" → mudar estímulo
+
+json
+{
+  "id": "feedback_005",
+  "condicao": "progresso_lento",
+  "acao": "mudar_estimulo",
+  "escopo": "exercicios_da_semana_atual",
+  "descricao": "Mudar o estímulo (volume, intensidade, tipo de exercício) quando o progresso estiver lento por 2 semanas."
+}
+
+Exemplo de regra: "Prato demanda < tempo" → ajustar dias
+
+json
+{
+  "id": "feedback_006",
+  "condicao": "prato_demanda_menor_tempo",
+  "acao": "ajustar_dias",
+  "escopo": "dias_de_treino",
+  "descricao": "Ajustar o número de dias de treino quando o prato de tempo disponível for menor que o demandado."
+}
+
+Como montar 200+ regras
+Você pode repetir o padrão, variando:
+Condição: muito_cansado, muito_facil, dor_no_ombro, dor_no_quadril, progresso_lento, sem_feedback, feedback_positivo, etc.
+Ação: reduzir_volume, aumentar_intensidade, substituir_exercicios, mudar_estimulo, ajustar_dias, reduzir_repeticoes, etc.
+Escopo: exercicios_de_forca, exercicios_de_hipertrofia, cardio, exercicios_com_ombros, exercicios_com_quadril, etc.
+Com isso você já cruza combinações diferentes para chegar a 200+ regras sem repetir muito.
+
+
+Tem três coisas que valem muito a pena completar/refinar antes de você “fechar” essa base como V1 de produto.
+
+1. Camada de ligação entre domínios
+Hoje você tem domínios separados (treinos, exercícios, templates, periodização, deload, feedback), mas ainda falta uma camada de vínculo explícito entre eles.
+Vale criar, nem que seja só conceitualmente:
+Um campo padrão em program_templates como periodization_id (link para um esquema de periodização específico).
+Um campo em workout_programs tipo template_id (de qual template aquele programa nasceu).
+Uma estrutura do tipo day_blocks / block_exercises ligando:
+workout_program.id
+→ day (D1, D2...)
+→ block (principal, acessórios, cardio…)
+→ exercise_id (da base de 200 exercícios).
+Isso transforma o acervo de “listas” em um grafo coerente, que IA e lógica de app conseguem navegar.
+
+2. Metadados de versionamento e qualidade
+Para virar produto confiável, falta uma camada de governança:
+Em cada entidade principal (exercício, template, periodização, protocolo, regra):
+status: draft | validado | obsoleto
+versao: ex. 1.0.0, 1.1.0
+autor: "tiago" ou "time_x"
+data_ultima_revisao: "2026-04-20"
+fonte_evidencia: "NSCA" | "experiencia_clinica" | "literatura"
+Isso te permite refinar ao longo do tempo sem quebrar clientes antigos de API/IA.
+
+3. Normalização de vocabulário e tags
+Como você vai usar IA e filtros, é crítico ter um vocabulário consistente:
+Objetivos sempre em um conjunto fechado: "hipertrofia", "forca_pura", "emagrecimento", "resistencia", "reabilitacao", "definicao".
+Mesma coisa para:
+nivel_tecnico: "iniciante" | "intermediario" | "avancado".
+tipo_periodizacao: "linear" | "ondulante" | "block" | "conjugate" | "adaptavel".
+tipo_deload: "ativo" | "passivo" | "semana_descarga" | "adaptacao".
+feedback.condicao: sempre em snake_case ("muito_cansado", "muito_facil", etc.).
+

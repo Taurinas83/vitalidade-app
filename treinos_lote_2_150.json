@@ -1,0 +1,5112 @@
+{
+  "database": {
+    "version": "1.0.0",
+    "domain": "treinos",
+    "entity": "workout_programs",
+    "chunk": 2,
+    "total_target": 150,
+    "offset": 151
+  },
+  "workout_programs": [
+    {
+      "id": "fullbody_151_1d_iniciante_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - hipertrofia iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_152_1d_iniciante_forca",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - forca iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_153_1d_iniciante_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - emagrecimento iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_154_1d_iniciante_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - resistencia iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_155_1d_iniciante_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - definicao iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_156_1d_iniciante_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - reabilitacao iniciante",
+      "frequency_days": 1,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_157_1d_intermediario_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - hipertrofia intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_158_1d_intermediario_forca",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - forca intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_159_1d_intermediario_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - emagrecimento intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_160_1d_intermediario_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - resistencia intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_161_1d_intermediario_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - definicao intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_162_1d_intermediario_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - reabilitacao intermediario",
+      "frequency_days": 1,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_163_1d_avancado_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - hipertrofia avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_164_1d_avancado_forca",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - forca avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_165_1d_avancado_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - emagrecimento avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_166_1d_avancado_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - resistencia avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_167_1d_avancado_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - definicao avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_168_1d_avancado_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 1 dias - reabilitacao avancado",
+      "frequency_days": 1,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 1,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "1dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_169_3d_iniciante_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - hipertrofia iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_170_3d_iniciante_forca",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - forca iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_171_3d_iniciante_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - emagrecimento iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_172_3d_iniciante_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - resistencia iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_173_3d_iniciante_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - definicao iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_174_3d_iniciante_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - reabilitacao iniciante",
+      "frequency_days": 3,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_175_3d_intermediario_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - hipertrofia intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_176_3d_intermediario_forca",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - forca intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_177_3d_intermediario_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - emagrecimento intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_178_3d_intermediario_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - resistencia intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_179_3d_intermediario_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - definicao intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_180_3d_intermediario_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - reabilitacao intermediario",
+      "frequency_days": 3,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_181_3d_avancado_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - hipertrofia avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_182_3d_avancado_forca",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - forca avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_183_3d_avancado_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - emagrecimento avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_184_3d_avancado_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - resistencia avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_185_3d_avancado_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - definicao avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_186_3d_avancado_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 3 dias - reabilitacao avancado",
+      "frequency_days": 3,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 3,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "3dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_187_4d_iniciante_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - hipertrofia iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_188_4d_iniciante_forca",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - forca iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_189_4d_iniciante_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - emagrecimento iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_190_4d_iniciante_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - resistencia iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_191_4d_iniciante_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - definicao iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_192_4d_iniciante_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - reabilitacao iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_193_4d_intermediario_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - hipertrofia intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_194_4d_intermediario_forca",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - forca intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_195_4d_intermediario_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - emagrecimento intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_196_4d_intermediario_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - resistencia intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_197_4d_intermediario_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - definicao intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_198_4d_intermediario_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - reabilitacao intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_199_4d_avancado_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - hipertrofia avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_200_4d_avancado_forca",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - forca avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_201_4d_avancado_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - emagrecimento avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_202_4d_avancado_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - resistencia avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_203_4d_avancado_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - definicao avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_204_4d_avancado_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 4 dias - reabilitacao avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "4dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_205_5d_iniciante_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - hipertrofia iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_206_5d_iniciante_forca",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - forca iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_207_5d_iniciante_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - emagrecimento iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_208_5d_iniciante_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - resistencia iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_209_5d_iniciante_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - definicao iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_210_5d_iniciante_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - reabilitacao iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_211_5d_intermediario_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - hipertrofia intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_212_5d_intermediario_forca",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - forca intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_213_5d_intermediario_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - emagrecimento intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_214_5d_intermediario_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - resistencia intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_215_5d_intermediario_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - definicao intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_216_5d_intermediario_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - reabilitacao intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_217_5d_avancado_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - hipertrofia avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_218_5d_avancado_forca",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - forca avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_219_5d_avancado_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - emagrecimento avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_220_5d_avancado_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - resistencia avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_221_5d_avancado_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - definicao avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_222_5d_avancado_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 5 dias - reabilitacao avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "5dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_223_6d_iniciante_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - hipertrofia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_224_6d_iniciante_forca",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - forca iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_225_6d_iniciante_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - emagrecimento iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_226_6d_iniciante_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - resistencia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_227_6d_iniciante_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - definicao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_228_6d_iniciante_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - reabilitacao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_229_6d_intermediario_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - hipertrofia intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_230_6d_intermediario_forca",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - forca intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_231_6d_intermediario_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - emagrecimento intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_232_6d_intermediario_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - resistencia intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_233_6d_intermediario_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - definicao intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_234_6d_intermediario_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - reabilitacao intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "fullbody_235_6d_avancado_hipertrofia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - hipertrofia avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "fullbody_236_6d_avancado_forca",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - forca avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "fullbody_237_6d_avancado_emagrecimento",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - emagrecimento avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "fullbody_238_6d_avancado_resistencia",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - resistencia avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "fullbody_239_6d_avancado_definicao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - definicao avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "fullbody_240_6d_avancado_reabilitacao",
+      "category": "fullbody",
+      "name": "Fullbody 6 dias - reabilitacao avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "fullbody",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "fullbody",
+        "6dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_241_4d_iniciante_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - hipertrofia iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_242_4d_iniciante_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - forca iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_243_4d_iniciante_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - emagrecimento iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_244_4d_iniciante_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - resistencia iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_245_4d_iniciante_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - definicao iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_246_4d_iniciante_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - reabilitacao iniciante",
+      "frequency_days": 4,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_247_4d_intermediario_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - hipertrofia intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_248_4d_intermediario_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - forca intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_249_4d_intermediario_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - emagrecimento intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_250_4d_intermediario_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - resistencia intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_251_4d_intermediario_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - definicao intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_252_4d_intermediario_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - reabilitacao intermediario",
+      "frequency_days": 4,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_253_4d_avancado_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - hipertrofia avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_254_4d_avancado_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - forca avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_255_4d_avancado_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - emagrecimento avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_256_4d_avancado_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - resistencia avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_257_4d_avancado_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - definicao avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_258_4d_avancado_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 4 dias - reabilitacao avancado",
+      "frequency_days": 4,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 4,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "4dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_259_5d_iniciante_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - hipertrofia iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_260_5d_iniciante_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - forca iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_261_5d_iniciante_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - emagrecimento iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_262_5d_iniciante_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - resistencia iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_263_5d_iniciante_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - definicao iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_264_5d_iniciante_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - reabilitacao iniciante",
+      "frequency_days": 5,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_265_5d_intermediario_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - hipertrofia intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_266_5d_intermediario_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - forca intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_267_5d_intermediario_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - emagrecimento intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_268_5d_intermediario_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - resistencia intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_269_5d_intermediario_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - definicao intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_270_5d_intermediario_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - reabilitacao intermediario",
+      "frequency_days": 5,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_271_5d_avancado_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - hipertrofia avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_272_5d_avancado_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - forca avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_273_5d_avancado_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - emagrecimento avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_274_5d_avancado_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - resistencia avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_275_5d_avancado_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - definicao avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_276_5d_avancado_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 5 dias - reabilitacao avancado",
+      "frequency_days": 5,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 5,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "5dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_277_6d_iniciante_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - hipertrofia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_278_6d_iniciante_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - forca iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_279_6d_iniciante_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - emagrecimento iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_280_6d_iniciante_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - resistencia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_281_6d_iniciante_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - definicao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_282_6d_iniciante_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - reabilitacao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_283_6d_intermediario_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - hipertrofia intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_284_6d_intermediario_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - forca intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_285_6d_intermediario_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - emagrecimento intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_286_6d_intermediario_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - resistencia intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_287_6d_intermediario_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - definicao intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_288_6d_intermediario_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - reabilitacao intermediario",
+      "frequency_days": 6,
+      "level": "intermediario",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "intermediario",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "upper_lower_289_6d_avancado_hipertrofia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - hipertrofia avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "upper_lower_290_6d_avancado_forca",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - forca avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "forca"
+      ]
+    },
+    {
+      "id": "upper_lower_291_6d_avancado_emagrecimento",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - emagrecimento avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "linear",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "upper_lower_292_6d_avancado_resistencia",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - resistencia avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "upper_lower_293_6d_avancado_definicao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - definicao avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "definicao"
+      ]
+    },
+    {
+      "id": "upper_lower_294_6d_avancado_reabilitacao",
+      "category": "upper_lower",
+      "name": "Upper/Lower 6 dias - reabilitacao avancado",
+      "frequency_days": 6,
+      "level": "avancado",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "upper_lower",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "upper_lower",
+        "6dias",
+        "avancado",
+        "reabilitacao"
+      ]
+    },
+    {
+      "id": "ppl_295_6d_iniciante_hipertrofia",
+      "category": "ppl",
+      "name": "PPL 6 dias - hipertrofia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "hipertrofia",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 5,
+        "type": "ativo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "ppl_296_6d_iniciante_forca",
+      "category": "ppl",
+      "name": "PPL 6 dias - forca iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "forca",
+      "focus": [
+        "movimento_global",
+        "progressao",
+        "consistencia"
+      ],
+      "duration_weeks": 8,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "linear",
+      "deload": {
+        "week": 5,
+        "type": "passivo",
+        "volume_reduction_percent": 20
+      },
+      "constraints": {
+        "equipment": [
+          "peso_corporal"
+        ],
+        "time_minutes": 30
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "forca"
+      ]
+    },
+    {
+      "id": "ppl_297_6d_iniciante_emagrecimento",
+      "category": "ppl",
+      "name": "PPL 6 dias - emagrecimento iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "emagrecimento",
+      "focus": [
+        "deficit_calorico",
+        "densidade",
+        "preservacao_massa"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "ondulante",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "academia_completa"
+        ],
+        "time_minutes": 45
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "emagrecimento"
+      ]
+    },
+    {
+      "id": "ppl_298_6d_iniciante_resistencia",
+      "category": "ppl",
+      "name": "PPL 6 dias - resistencia iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "resistencia",
+      "focus": [
+        "capacidade_anaerobica",
+        "trabalho_continuo",
+        "recuperacao"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "block",
+      "deload": {
+        "week": 4,
+        "type": "ativo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "halteres"
+        ],
+        "time_minutes": 60
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "resistencia"
+      ]
+    },
+    {
+      "id": "ppl_299_6d_iniciante_definicao",
+      "category": "ppl",
+      "name": "PPL 6 dias - definicao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "definicao",
+      "focus": [
+        "manutencao_massa",
+        "volume_controlado",
+        "condicionamento"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "conjugate",
+      "deload": {
+        "week": 4,
+        "type": "passivo",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "barra"
+        ],
+        "time_minutes": 75
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "definicao"
+      ]
+    },
+    {
+      "id": "ppl_300_6d_iniciante_reabilitacao",
+      "category": "ppl",
+      "name": "PPL 6 dias - reabilitacao iniciante",
+      "frequency_days": 6,
+      "level": "iniciante",
+      "goal": "reabilitacao",
+      "focus": [
+        "controle_motor",
+        "seguranca",
+        "retorno_progressivo"
+      ],
+      "duration_weeks": 6,
+      "sessions_per_week": 6,
+      "split_logic": "ppl",
+      "periodization": "adaptavel",
+      "deload": {
+        "week": 4,
+        "type": "mecanico",
+        "volume_reduction_percent": 25
+      },
+      "constraints": {
+        "equipment": [
+          "misto"
+        ],
+        "time_minutes": 90
+      },
+      "tags": [
+        "ppl",
+        "6dias",
+        "iniciante",
+        "reabilitacao"
+      ]
+    }
+  ]
+}
